@@ -1,0 +1,406 @@
+@import url('https://fonts.cdnfonts.com/css/games');
+
+header{
+    background: linear-gradient(#090D73, rgb(10, 10, 10));
+}
+
+footer{
+    background: linear-gradient(black, #090D73);
+}
+
+.flex-container {
+    resize: both;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    background-color: #153da1;
+}
+
+.flex-item {
+    flex-grow: 1; /* Por defecto, todas las columnas crecen igualmente */
+    padding: 10px; /* Espaciado interno */
+    border: 1px solid #000; /* Ver los límites de cada columna */
+}
+
+.flex-item-1 {
+    flex-basis: 80%;
+    flex-grow: 2; /* Hacer que este elemento tenga más probabilidades de crecer */
+}
+
+.flex-item-2 {
+    flex-basis: 10%;
+    flex-shrink: 2; /* Hacer que este elemento tenga más probabilidades de encogerse */
+    display: flex; /* Convertir en contenedor flex */
+    flex-direction: column; /* Apilar elementos en columna */
+    align-items: center; /* Centrar elementos horizontalmente */
+    justify-content: center; /* Centrar elementos verticalmente */
+}
+
+.flex-item-2 > * {
+    width: 100%;
+    margin: 10px 0; /* Espaciado vertical entre elementos */
+    text-align: center;
+}
+
+.flex-item-2 #result {
+    flex-grow: 1; /* Permitir que el resultado (tabla) crezca y ocupe espacio */
+}
+
+h1, h2, h3{
+    font-family: 'Games', sans-serif;
+    color: white;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    color: white;
+    border-color: rgba(255, 255, 255, 0.39);
+}
+
+th {
+    background-color: #090D73;
+    color: white;
+}
+
+td {
+    height: 28px;
+}
+
+#keyboard {
+    position: absolute;
+    top: 50%;
+    right: 40px;
+    transform: translateY(-50%);
+    display: grid;
+    grid-template-columns: repeat(3, 60px); /* 3 columnas */
+    grid-auto-rows: 60px; /* Altura automática de las filas */
+    grid-gap: 5px; /* Espacio entre las teclas */
+}
+
+#titleGame, #userNameGame{
+    font-family: 'Games', sans-serif;
+    color: white;
+}
+
+#answer{
+    /* font-family: 'Games', sans-serif; */
+    font-size: 25px;
+}
+
+/*Respuesta Final Resultado*/
+#answer-container{
+    position: absolute;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    border: 0.5px solid white;
+    border-radius: 10px;
+    font-size:20px;
+    padding: 30px;
+    background-color: #090D73;
+    background-repeat: no-repeat;
+    background-size: auto;
+    transform: translateY(-50%);
+}
+/*Boton Final Resultado*/
+#continue-btn{
+    background-color: rgb(0, 0, 0);
+    color: white;
+    font-size:20px;
+    height: 30px;
+    width: 200px;
+    border: none;
+}
+#continue-btn:hover{
+    cursor: pointer;
+}
+
+.key {
+    background-color: #ccc;
+    border: 1px solid #999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#delete {
+    grid-column: 1 / span 3; /* Ocupa tres columnas */
+}
+
+#game-container {
+    width: 70%; /* Cambiado a porcentaje para que se ajuste al ancho del padre */
+    max-width: 1000px; /* Establece un ancho máximo */
+    height: 50vh; /* Establece la altura al 50% del viewport height */
+    position: relative;
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    overflow: hidden; /* Oculta el desbordamiento del video */
+}
+
+#video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta el tamaño del video para cubrir el contenedor */
+}
+
+/* Estilos para el elemento de retroceso */
+#backGame {
+    position: absolute;
+    top: 10px; /* Ajusta la posición superior según sea necesario */
+    left: 10px; /* Ajusta la posición izquierda según sea necesario */
+    width: 40px; /* Ancho del contenedor */
+    height: 40px; /* Altura del contenedor */ 
+}
+/* Estilos para el elemento de pausa */
+#pauseGame {
+    position: absolute;
+    top: 10px; /* Ajusta la posición superior según sea necesario */
+    left: 70px; /* Ajusta la posición izquierda según sea necesario */
+    width: 40px; /* Ancho del contenedor */
+    height: 40px; /* Altura del contenedor */ 
+}
+/* Estilos para el botón de retroceso y pausa*/
+#backGame input[type="button"], #pauseGame input[type="button"] {
+    width: 100%; /* El botón ocupará todo el ancho del contenedor */
+    height: 100%; /* El botón ocupará toda la altura del contenedor */
+    font-size: 20px; /* Tamaño de la fuente del botón */
+    border-radius: 10px;
+    border-color: blue;
+    color: white;
+    background-color: #090D73;
+    cursor: pointer;
+}
+
+#player {
+    aspect-ratio: 1/1; /* Relación de aspecto 1:1 para mantener el cuadrado */
+    width: 15%; /* Ancho relativo al contenedor padre */
+    max-width: 120px; /* Ancho máximo en píxeles */
+    /*background-color: blue;*/
+    background-image: url('Mathkid.png'); /* Cambia la ruta a la imagen del jugador */
+    background-size: cover;
+    position: absolute;
+    bottom: 5%; /* Posición relativa al viewport height */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1; /* Valor de z-index para el jugador */
+}
+
+.bullet {
+    width: 5px;
+    height: 20px;
+    background-color: red;
+    position: absolute;
+}
+
+#enemy {
+    width: 15%; /* Ancho relativo al contenedor padre */
+    height: 10vh; /* Altura relativa al viewport height */
+    /*background-color: red;*/
+    position: absolute;
+    top: 20%; /* Posición relativa al viewport height */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1; /* Valor de z-index para el enemigo */
+    /* Cambia la ruta a la imagen del enemigo */
+    /* background-image: url('/mathkid_online/img/asteroide13.png');  */
+    background-size: contain; /* Ajusta el tamaño de la imagen para que quepa completamente dentro del contenedor */
+    background-position: center center; /* Centra la imagen tanto horizontal como verticalmente */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+}
+
+#enemy-content {
+    position: relative;
+    width: 100%; /* Tamaño relativo al enemigo */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+#enemy-content img {
+    position: absolute; /* Posicionamiento absoluto para la imagen */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ocupa todo el espacio disponible */
+    height: 100%;
+}
+
+#enemy-content p {
+    font-size: 0.1em; /* Tamaño de texto más grande para dispositivos móviles */
+    margin: 0;
+    max-width: 80%; /* Tamaño máximo del texto para evitar que se salga del contenedor */
+    overflow: hidden; /* Oculta el texto que excede el tamaño máximo */
+}
+
+#enemy-content input {
+    width: 100em; /* Tamaño relativo al contenedor del input */
+    height: 3em;
+    padding: 0.5em; /* Padding relativo al contenedor del input */
+    margin-top: 1em; /* Margen superior relativo al contenedor del input */
+    max-width: 90%; /* Tamaño máximo del input para evitar que se salga del contenedor */
+}
+
+@keyframes vibrate {
+    0% { transform: rotate(0deg); }
+    10% { transform: rotate(-2deg); }
+    20% { transform: rotate(2deg); }
+    30% { transform: rotate(0deg); }
+    40% { transform: rotate(2deg); }
+    50% { transform: rotate(-2deg); }
+    60% { transform: rotate(0deg); }
+    70% { transform: rotate(-2deg); }
+    80% { transform: rotate(2deg); }
+    90% { transform: rotate(0deg); }
+    100% { transform: rotate(-2deg); }
+}
+
+#enemy-input{
+
+}
+
+#score{
+    top: 20px;
+    right: 20px;
+}
+
+#level{
+    top: 60px;
+    right: 20px;
+}
+
+#task{
+    top: 25%;
+}
+#task-message{
+    top: 30%;
+}
+
+#score, #level, #task, #task-message {
+    position: absolute;
+    font-size: 24px;
+    color: white;
+    font-family: 'Games', sans-serif;
+}
+
+#task-message, #task{
+    right: 1px;
+    width: 200px;
+    font-size: 18px;
+}
+
+#level-label{
+    font-family: 'Games', sans-serif;
+    font-size: 15px;
+    color: white;
+}
+
+#tutorial-btn, #win-btn, #pause-btn{
+    height: 40px;
+    width: 100px;
+    cursor: pointer;
+}
+
+#pause-btn{
+    height: 800px;
+    width: 550px;
+    background: url(/assets/js-game/Pause.png) no-repeat fixed center;
+    border: transparent;
+}
+
+#level-selector-container, #tutorial-container, #win-container, #pause-container{
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #090D73;
+    padding: 30px 60px;
+    border-radius: 10px;
+    text-align: center;
+}
+#level-selector-container{
+    z-index: 10;
+}
+#tutorial-container{
+    padding: 30px 80px;
+    z-index: 9;
+}
+#win-container{
+    z-index: 8;
+}
+#pause-container{
+    background-color: #000000;
+    padding: 0px 0px;
+    z-index: 7;
+}
+
+#img-Tutorial{
+    width: 250px;
+}
+/* Diseño Menu Selecionar nivel, boton comenzar*/
+#level-selector-container label,
+#level-selector-container select,
+#level-selector-container button {
+    margin: 10px;
+}
+
+#level-selector-container button,
+#level-selector-container select{
+    margin: 10px;
+    width: 120px;
+    height: 30px;
+}
+#level-selector-container button:hover,
+#level-selector-container select:hover{
+    cursor: pointer;
+}
+
+
+/* Oculta las flechas de incremento/decremento en inputs tipo number */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearancem: textfield; /* Firefox */
+}
+
+@keyframes explosion {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(2);
+      opacity: 0;
+    }
+}
+
+.explosion {
+    animation: explosion 0.5s forwards;
+}
+
+@media screen and (max-width: 600px) {
+    #player {
+        width: 20%; /* Ancho relativo al contenedor padre */
+        height: 5vh; /* Altura relativa al viewport height */
+        bottom: 10%; /* Posición relativa al viewport height */
+        max-width: 40px; /* Ancho máximo en píxeles */
+    }
+    #enemy {
+        width: 30%; /* Ancho relativo al contenedor padre */
+        height: 15vh; /* Altura relativa al viewport height */
+        top: 10%; /* Posición relativa al viewport height */
+    }
+    .left, .main, .right {
+        width: 100%; /* The width is 100%, when the viewport is 600px or smaller */        
+    }
+}

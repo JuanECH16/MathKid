@@ -1,0 +1,35 @@
+body{
+    background-color: black;
+}
+
+/*Boton regreso dentro de GAME configuración*/
+.back{
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+}
+
+.regreso{
+    background-color:#090D73;    
+    border-radius: 12px;
+    height: 30px;
+    width: 170px;
+}
+.regreso:hover{
+    cursor: pointer;
+}
+.a{
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+.title{
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 600px) {
+
+}

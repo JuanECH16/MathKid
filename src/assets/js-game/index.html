@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Juego de Matemáticas</title>
+    <link rel="stylesheet" href="gamePage.css">
+    <link rel="stylesheet" href="asteroids.css">
+    <link href="https://fonts.cdnfonts.com/css/games" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>    
+    <main>
+        <div class="title">
+            <h1 id="titleGame" class="customfont">Asteroids</h1>
+            <h3 id="userNameGame">UserName</h3>
+        </div>
+    
+        <br>
+    
+        <div class="flex-container">
+            <!-- Game -->
+            <div id="game-container" class="flex-item flex-item-1">
+                <video autoplay muted loop id="video-background">
+                    <source src="Fondo.mp4" type="video/mp4">
+                    <source src="background.webm" type="video/webm">
+                    <!-- Agrega formatos de video adicionales según sea necesario -->
+                    Tu navegador no admite la etiqueta de video.
+                </video>
+                <div id="player"></div>
+                <div id="enemy">
+                    <div id="enemy-content">
+                        <p>Enemigo</p>
+                        <input type="number" id="enemy-input" placeholder="Ingresa tu respuesta" min="0">
+                        <p id="enter-text">Enter!!!</p>
+                    </div>
+                </div>
+                <div id="answer-container">
+                    <div id="answer">#</div>
+                    <br>
+                    <button id="continue-btn">Continuar</button>
+                </div>
+                <div id="backGame">
+                    <input type="button" value="<">
+                </div>
+                <div id="pauseGame">
+                    <input type="button" value="||">
+                </div>
+                <div id="ui-inGame">
+                    <div id="score">Puntaje: 0</div>
+                    <div id="level">Nivel: 1</div>
+                    <!-- <div id="task">Mision</div> -->
+                    <div id="task-message">Destruye X cantidad de asteroides</div>
+                </div>
+                <div id="tutorial-container">
+                    <h1>Tutorial</h1>
+                    <br>
+                    <img id="img-Tutorial" src="Tutorial.png" alt="">
+                    <br><br>
+                    <h3>Usa los numeros y el boton 'enter' para jugar</h3>
+                    <br>
+                    <button id="tutorial-btn">Continuar</button>
+                </div>
+                <div id="level-selector-container">
+                    <div>
+                        <label for="level-selector" id="level-label"><h1>Selecciona el nivel</h1></label>
+                    </div>
+                    <div>
+                        <!-- <select id="difficulty-selector" name="difficulty-selector">
+                            <option value="1">1er Grado</option>
+                            <option value="2">2do Grado</option>
+                            <option value="3">3er Grado +</option>
+                        </select> -->
+
+                        <select id="level-selector" name="level-selector">
+                            <option value="1">1. Suma</option>
+                            <option value="2">2. Resta</option>
+                            <option value="3">3. Multiplicación</option>
+                            <option value="4">4. División</option>
+                            <option value="5">5. Nivel Infinito</option>
+                        </select>
+
+                        <button id="start-button">Comenzar Juego</button>
+                    </div>
+                </div>
+                <div id="win-container">
+                    <h1>Game Over</h1>
+                    <br>
+                    <img src="win2.jpg" alt="">
+                    <br><br>
+                    <button id="win-btn">Continuar</button>
+                </div>
+                <div id="pause-container">
+                    <button id="pause-btn"></button>
+                </div>
+                
+                <audio id="explosion-sound" src="DestroyAsteroide.mp3"></audio>
+                <audio id="buttons-sound" src="CargadoPoder.mp3"></audio>
+                <!-- <audio id="shoot2-sound" src="/mathkid_online/sounds/Shoot2.mp3"></audio> -->
+                <audio id="shoot-sound" src="Disparo.mp3"></audio>
+                <audio id="loose-sound" src="Perder.mp3"></audio>
+                <audio id="background-music" loop autoplay>
+                    <source src="MusicadeFondo.mp3" type="audio/mpeg">
+                    <source src="/ruta/al/archivo/de/sonido/musica-de-fondo.ogg" type="audio/ogg">
+                    Tu navegador no soporta el elemento de audio.
+                </audio>
+            </div>
+    
+            <!-- Tabla de Puntación -->
+            <div class="flex-item flex-item-2">
+                <h1>Top 20</h1>
+                <select id="optionsCRUD" name="operation" onchange="getDataTableUsers()">
+                    <option value="allUsers">Todos</option>
+                    <option value="user">Yo</option>
+                </select>
+                
+                <div id="result"></div>
+            </div>
+        </div>
+    
+        <br>
+    
+        <div class="back">
+            <button class="regreso"><a class="a" href="/src/index.html">Volver a la página principal</a></button>
+        </div>
+    </main>
+    
+    <script src="asteroids.js"></script>
+    <script>
+        getDataTableUsers();
+
+        function getDataTableUsers() {
+            let userName = localStorage.getItem('userNameStg');
+            if(userName == ""){
+                userName = "Invitado";
+            }
+
+            var select = document.getElementById("optionsCRUD");
+            var opcionSeleccionada = select.options[select.selectedIndex].value;
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "scoreTable.php", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var response = xhr.responseText;
+                    document.getElementById("result").innerHTML = response;
+                }
+            };
+        
+            var params = "userName=" + encodeURIComponent(userName) + "&operation=" + encodeURIComponent(opcionSeleccionada);
+            xhr.send(params);
+        }
+    </script>
+</body>
+</html>
