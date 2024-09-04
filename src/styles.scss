@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+:root{
+    color-scheme: ligth dark;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 130px; /* Ajusta el padding para compensar la altura del footer */
+    font-family: 'Open Sans', sans-serif;
+}

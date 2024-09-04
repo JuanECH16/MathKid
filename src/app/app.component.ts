@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'MathKid';
+
+  iframeUrl: SafeResourceUrl;
+
+  constructor(private sanitizer: DomSanitizer) {
+    // URL inicial del iframe
+    this.iframeUrl = this.sanitizer.bypassSecurityTrustResourceUrl('/assets/godot-game');
+  }
 }

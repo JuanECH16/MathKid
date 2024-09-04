@@ -1,0 +1,108 @@
+header {
+    background: #0597F2;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    width: 100%;
+}
+
+/* Menú Hamburguesa */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 10px; /* Asegura que el menú hamburguesa esté separado del borde */
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 3px 0;
+    transition: 0.4s;
+}
+
+#optionsHeader {
+    display: flex;
+    align-items: center;
+}
+
+#optionsHeader ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#optionsHeader li {
+    font-size: large;
+    margin: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    transition: background 0.5s;
+}
+
+#optionsHeader li:hover {
+    background: rgb(0, 100, 255);
+    cursor: pointer;
+}
+
+#optionsHeader li a {
+    text-decoration: none;
+    color: white;
+    padding: 0px 15px;
+}
+
+#optionsHeader li img {
+    height: 40px;
+}
+
+/* Responsivo */
+@media screen and (max-width: 800px) {
+    .hamburger {
+        display: flex;
+    }
+
+    #optionsHeader {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start; /* Alinea los elementos al inicio */
+        width: 100%;
+        position: absolute;
+        top: 80px; /* Asegura que el menú aparezca justo debajo del header */
+        left: 0;
+        background-color: #0597F2;
+        z-index: 1;
+    }
+
+    #optionsHeader li img {
+        height: 24px;
+        margin-left: 8px;
+    }
+
+    #optionsHeader.active {
+        display: flex;
+    }
+
+    #optionsHeader ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #optionsHeader li {
+        width: 100%;
+        justify-content: flex-start; /* Alinea el contenido al inicio */
+        margin: 0; /* Elimina el margen */
+    }
+
+    #optionsHeader li a {
+        width: 100%;
+        padding: 10px;
+    }
+}

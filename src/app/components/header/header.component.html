@@ -1,0 +1,23 @@
+<header>
+    <section>
+        <h1 id="titulo"><a href="/index.html">MATHKID ONLINE</a></h1>
+    </section>
+    <section>
+        <div class="hamburger" (click)="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav id="optionsHeader">
+            <ul>
+                <li><a href="#" id="userName" (click)="nameSelect()">Nombre Usuario</a></li>
+                <li><a href="/game-display">Reciente</a></li>
+                <li><a href="/users">Contacto</a></li>
+                <li>
+                    <img src="https://cdn-icons-png.flaticon.com/512/6326/6326055.png" alt="Login Icon">
+                    <a href="#" id="login" (click)="changePage()" (click)="emptyAll()">Iniciar Sesión</a>
+                </li>
+            </ul>
+        </nav>
+    </section>
+</header>

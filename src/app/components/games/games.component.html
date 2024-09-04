@@ -1,0 +1,8 @@
+<ul>
+    <h3>Los juegos de {{ username }}</h3>
+    @for (game of games; track game.title) {
+        <li>
+            <a>{{ game.title }}</a>
+        </li>
+    }
+</ul>

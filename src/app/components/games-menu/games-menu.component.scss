@@ -1,0 +1,58 @@
+/*JUEGOS PAGINA PRINCIPAL*/
+.games {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5%;
+    padding: 50px 50px;
+
+    box-shadow: 3px 0 20px rgba(0, 0, 0, 0.8);
+    width: 35%; 
+    margin: 0 auto; /* Esto centra el contenedor horizontalmente */
+}
+
+.top, .middle, .bottom {
+    display: flex;
+    margin-bottom: 20px; 
+}
+
+.top a, .middle a, .bottom a{
+    text-decoration: none;
+    color: white;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    height: 150px;
+    width: 150px;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+.g1 {
+    background-color: #04B2D9;
+    background-image: url('/assets/img/PortadaAsteroids.jpg');
+    background-size: cover; /* Ajusta la imagen para que cubra todo el espacio */
+}
+.g2{
+    background-color: #05F2C7;
+}
+.g3{
+    background-color: #04B2D9;
+    
+}
+.g4 {
+    background-color: #05F2C7;
+    margin-right: 0; /* Quita el margen derecho para el segundo y cuarto juego */
+}
+.g5{
+    background-color: #04B2D9;
+}
+.g6{
+
+    background-color: #05F2C7;
+}
+
+@media screen and (max-width: 980px){
+    .games{
+        padding: 50px 170px;
+    }
+}
