@@ -29,7 +29,7 @@ export class ContactsService {
 
   uploadFile(file: UploadImg): Observable<any> {
     if (file.nameFile === "" && file.base64textString === null) {
-      return throwError('File data is missing');
+      return throwError(() => new Error('File data is missing'));
     }
 
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
@@ -40,6 +40,6 @@ export class ContactsService {
 
   private handleError(error: any) {
     console.error('An error occurred:', error);
-    return throwError(error);
+    return throwError(() => error);
   }
 }

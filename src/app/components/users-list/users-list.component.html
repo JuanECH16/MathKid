@@ -29,14 +29,14 @@
 
 <div>
     <form (ngSubmit)="addContact()" [formGroup]="Form" autocomplete="off">
-        <input type="text" placeholder="Nombre" formControlName="name">
+        <input type="text" placeholder="Nombre" formControlName="name"  required>
         <br>
         <input type="text" placeholder="Telefono" formControlName="phone">
         <br>
-        <input type="email" placeholder="Email" formControlName="email">
+        <input type="email" placeholder="Email" formControlName="email" required>
         <br>
         <input type="file" accept="image/*" (change)="selectFile($event)" formControlName="image">
         <br>
-        <button type="submit">Guardar</button>
+        <input type="submit" value="Guardar">
     </form>
 </div>
