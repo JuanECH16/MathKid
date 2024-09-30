@@ -8,6 +8,7 @@ import { GameDetailComponent } from './components/game-detail/game-detail.compon
 import { UsersComponent } from './components/users/users.component';
 import { UsersRegisterComponent } from './components/users-register/users-register.component';
 import { GameDisplayComponent } from './components/game-display/game-display.component';
+import { UsersListComponent } from './components/users-list/users-list.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'game-display', component: GameDisplayComponent },
   { path: 'users', component: UsersComponent },
   { path: 'users-register', component: UsersRegisterComponent },
+  { path: 'users-list', component: UsersListComponent },
   { path: '**', redirectTo: ''}
 ];
 

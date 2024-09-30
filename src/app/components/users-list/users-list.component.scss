@@ -1,0 +1,27 @@
+img {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	margin-right: 10px;
+	border: 2px solid gray/*var(--img-border-color)*/;
+}
+
+:root {
+	--img-border-color: black; /* Color por defecto para el modo claro */
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--img-border-color: white; /* Color para el modo oscuro */
+	}
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	text-align: center;
+}
+
+table, tr, td, th {
+	border: 1px solid;
+}
