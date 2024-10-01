@@ -8,7 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { GamesComponent } from './components/games/games.component';
+import { GameComponent } from './components/game/game.component';
 import { HomeComponent } from './modules/home/home.component';
 import { UserProfileComponent } from './modules/user-profile/user-profile.component';
 import { GamesMenuComponent } from './components/games-menu/games-menu.component';
@@ -18,6 +18,7 @@ import { GameDisplayComponent } from './modules/game-display/game-display.compon
 import { provideHttpClient } from '@angular/common/http';
 import { UsersListComponent } from './components/users-list/users-list.component';
 import { DomSecurePipe } from './data/pipes/dom-secure.pipe';
+import { ContactComponent } from './modules/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { DomSecurePipe } from './data/pipes/dom-secure.pipe';
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    GamesComponent,
+    GameComponent,
     HomeComponent,
     UserProfileComponent,
     GamesMenuComponent,
@@ -33,7 +34,8 @@ import { DomSecurePipe } from './data/pipes/dom-secure.pipe';
     GameTestComponent,
     GameDisplayComponent,
     UsersListComponent,
-    DomSecurePipe
+    DomSecurePipe,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

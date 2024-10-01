@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,6 +10,8 @@ export class HeaderComponent implements OnInit {
   nameUser: string | null = '';
   loginUserStoraged: string | null = '';
   numPressedAdmin = 0;
+
+  constructor(private router: Router) {}
 
   ngOnInit() {
     this.nameUser = localStorage.getItem('userNameStg');
@@ -38,7 +41,7 @@ export class HeaderComponent implements OnInit {
     this.numPressedAdmin += 1;
     console.log(this.numPressedAdmin);
     if (this.numPressedAdmin === 3) {
-      window.location.href = '/game-test';
+      this.router.navigate(['/game-test']);
       this.numPressedAdmin = 0;
     }
   }
@@ -46,10 +49,10 @@ export class HeaderComponent implements OnInit {
   changePage() {
     if (this.loginUserStoraged === 'true') {
       // Redirigir a la página principal
-      window.parent.location.href = '/index.html';
+      this.router.navigate(['']);
     } else {
       // Redirigir a la página login
-      window.parent.location.href = '/users-register';
+      this.router.navigate(['/user-register']);
     }
   }
 
@@ -69,5 +72,11 @@ export class HeaderComponent implements OnInit {
     if (miCuenta) {
       miCuenta.textContent = 'Iniciar Sesión';
     }
+  }
+
+  handleLoginClick(event: Event) {
+    event.preventDefault(); // Prevenir el comportamiento predeterminado del enlace
+    this.emptyAll();
+    this.changePage();
   }
 }

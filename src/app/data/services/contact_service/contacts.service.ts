@@ -14,15 +14,15 @@ export class ContactsService {
 
   constructor(private http: HttpClient) { }
 
-  getContacts(): Observable<any> {
-    return this.http.get<any>(`${this.url}index.php`).pipe(
+  getContacts(tableName: string): Observable<any> {
+    return this.http.get<any>(`${this.url}${tableName}/index.php`).pipe(
       catchError(this.handleError)
     );
   }
 
-  addContact(formData: Contacts): Observable<any> {
+  addContact(formData: Contacts, tableName: string): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.post<any>(`${this.url}index.php`, formData, { headers }).pipe(
+    return this.http.post<any>(`${this.url}${tableName}/index.php`, formData, { headers }).pipe(
       catchError(this.handleError)
     );
   }

@@ -1,7 +1,12 @@
-<iframe 
-  [src]="gameUrl | safeUrl"
-  frameborder="0" 
-  allowfullscreen 
-  sandbox="allow-scripts allow-same-origin" 
-  title="Juego">
-</iframe>
+<section>
+  <div class="container">
+    <div class="col">
+      <app-games></app-games>
+    </div>
+    <div class="col">
+      <h1>TOP 20</h1>
+      <br>
+      <app-users-list></app-users-list>
+    </div>
+  </div>
+</section>

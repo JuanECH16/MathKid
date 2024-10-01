@@ -1,0 +1,78 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(91, 97, 99);
+  }
+  
+  .contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: white;
+    padding: 30px 50px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+    width: 400px;
+    margin: 0 auto; /* Establece margen automático en todos los lados */
+  }
+  
+  .for {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+  
+  h2 {
+    color: #283629;
+    font-size: 35px;
+    margin-bottom: 20px;
+  }
+  
+  label {
+    color: black;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+  
+  input,
+  textarea {
+    padding: 17px 20px;
+    border-radius: 25px;
+    margin-bottom: 15px;
+    background-color: #eff0ea;
+    border: 2px solid #eff0ea;
+    color: black;
+    outline: none;
+  }
+  
+  .Botn {
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #337ab7;
+    padding: 15px 25px; /* Ajusta el padding para que el botón sea más grande */
+  }
+  
+  .Botn:hover {
+    color: #337ab7;
+    background-color: #f3eef2;
+  }
+  
+  .imga {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente los íconos */
+  }
+  
+  .imga p {
+    margin-right: 10px; /* Reduce el margen entre los íconos */
+  }
+
+  @media only screen and (max-width: 850px) {
+    .container {
+      width: 90%;
+    }
+  }
+  

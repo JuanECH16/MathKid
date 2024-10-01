@@ -10,9 +10,9 @@ import { GameService } from '../../data/services/game_service/game.service';  //
 export class GamesMenuComponent {
   constructor(private gameService: GameService, private router: Router) {}
 
-  loadGame(gamePath: string) {
+  loadGame(gamePath: string, gameName: string) {
     this.gameService.setGameUrl(gamePath);
     this.router.navigate(['/game-display']);
-    
+    localStorage.setItem('tableName', gameName);
   }
 }
