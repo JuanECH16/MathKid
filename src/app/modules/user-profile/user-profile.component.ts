@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-users',
-  templateUrl: './users.component.html',
-  styleUrl: './users.component.scss'
+  templateUrl: './user-profile.component.html',
+  styleUrl: './user-profile.component.scss'
 })
-export class UsersComponent {
+export class UserProfileComponent {
   userName = 'Juan';
   isLoggedIn = false;
 

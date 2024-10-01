@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { GameService } from '../../services/game.service';  // Ruta relativa al archivo del servicio
+import { GameService } from '../../data/services/game_service/game.service';  // Ruta relativa al archivo del servicio
 
 @Component({
   selector: 'app-game-display',

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { GameService } from '../../services/game.service';  // Ruta actualizada
+import { GameService } from '../../data/services/game_service/game.service';  // Ruta actualizada
 
 @Component({
   selector: 'app-games-menu',

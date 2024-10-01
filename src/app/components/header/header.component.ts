@@ -1,48 +1,50 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
+  nameUser: string | null = '';
+  loginUserStoraged: string | null = '';
+  numPressedAdmin = 0;
+
+  ngOnInit() {
+    this.nameUser = localStorage.getItem('userNameStg');
+    this.loginUserStoraged = localStorage.getItem('userLoggedStg');
+  }
+
   toggleMenu() {
-    let menu = document.getElementById('optionsHeader');
-    if (menu !== null) {
+    const menu = document.getElementById('optionsHeader');
+    if (menu) {
       menu.classList.toggle('active');
     }
   }
-  
-  nameUser = localStorage.getItem('userNameStg');
-
-  loginUserStoraged = localStorage.getItem('userLoggedStg');
 
   nameSelect() {
     let nameStoraged = localStorage.getItem('userNameStg');
 
-
-    if(this.loginUserStoraged === 'false'){
-        nameStoraged = "Invitado";
+    if (this.loginUserStoraged === 'false') {
+      nameStoraged = 'Invitado';
     }
 
     alert('Hola ' + nameStoraged + ', ¿Cómo vas?');
 
-    this.activateAdmmin();
+    this.activateAdmin();
   }
 
-  numPressedAdmin = 0;
-  activateAdmmin() {
-      this.numPressedAdmin += 1;
-      console.log(this.numPressedAdmin);
-      if(this.numPressedAdmin === 3){
-          //window.location.href = '/mathkid_online/html/saveDataGame.html';
-          window.location.href = '/game-test';
-          this.numPressedAdmin = 0;
-      }
+  activateAdmin() {
+    this.numPressedAdmin += 1;
+    console.log(this.numPressedAdmin);
+    if (this.numPressedAdmin === 3) {
+      window.location.href = '/game-test';
+      this.numPressedAdmin = 0;
+    }
   }
 
   changePage() {
-    if (this.loginUserStoraged === "true") {
+    if (this.loginUserStoraged === 'true') {
       // Redirigir a la página principal
       window.parent.location.href = '/index.html';
     } else {
@@ -63,9 +65,9 @@ export class HeaderComponent {
         nameUser.style.display = "block";
     }*/
 
-    let miCuenta = document.getElementById('login');
-    if(miCuenta !== null){
-        miCuenta.textContent = 'Iniciar Sesión';
+    const miCuenta = document.getElementById('login');
+    if (miCuenta) {
+      miCuenta.textContent = 'Iniciar Sesión';
     }
   }
 }

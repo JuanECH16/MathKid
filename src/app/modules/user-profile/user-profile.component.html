@@ -1,4 +1,6 @@
-<p>users works!</p>
+<p>users-profile works!</p>
+
+<br>
 
 @if (isLoggedIn) {
     <img (click)="greet()" src="https://github.com/JuanECH16.png" alt="photo">
@@ -8,6 +10,7 @@
     <!-- on viewport es para que cargue los elementos una vez se vean   -->
     @defer (on viewport) {
         <app-games username="{{ userName }}"></app-games>
+        <app-games></app-games>
     }@placeholder { <!-- Crea un espacio para los elementos -->
         <p>Espacio donde van los juegos</p>
     }@loading { <!-- Mensaje que va a salir mientras termina de cargar los elementos -->

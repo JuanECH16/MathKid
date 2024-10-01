@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ContactsService } from '../../services/contact service/contacts.service';
+import { ContactsService } from '../../data/services/contact_service/contacts.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Contacts } from '../../interfaces/contacts.interface';
-import { UploadImg } from '../../interfaces/uploadImg.interface';
+import { Contacts } from '../../data/interfaces/contacts.interface';
+import { UploadImg } from '../../data/interfaces/uploadImg.interface';
 import { v4 as uuidv4 } from 'uuid';
 import Swal from 'sweetalert2';
 
