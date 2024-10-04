@@ -5,23 +5,31 @@
             <thead>
                 <tr>
                     <th>#</th>
+                    <th>id</th>
                     <th>Imagen</th>
                     <th>Nombre</th>
                     <th>Telefono</th>
                     <th>Email</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let contact of contacts; let i = index;">
                     <td scope="row">{{i + 1}}</td>
+                    <td>{{contact.id}}</td>
                     <td>
                         <img [src]="contact.image | domSecure" (error)="setDefaultImage($event)" alt="img-user">
                     </td>
                     <td>{{contact.name}}</td>
                     <td>{{contact.phone}}</td>
                     <td>{{contact.email}}</td>
+                    <td>
+                        <button (click)="getContact(contact.id)">Update</button>
+                        <br>
+                        <button>Delete</button>
+                    </td>
                 </tr>
             </tbody>
         </table>
-    </div>    
+    </div>
 </section>

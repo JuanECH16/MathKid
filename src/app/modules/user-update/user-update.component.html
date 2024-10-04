@@ -1,0 +1,21 @@
+<div class="container">
+    <section>
+        <h1>Actualizar Datos Contacto</h1>
+    
+        <br>
+        
+        <div>
+            <form (ngSubmit)="editContact()" [formGroup]="Form" autocomplete="off">
+                <input type="text" placeholder="Nombre" formControlName="name"  required>
+                <br>
+                <input type="text" placeholder="Telefono" formControlName="phone">
+                <br>
+                <input type="email" placeholder="Email" formControlName="email" required>
+                <br>
+                <input type="file" accept="image/*" (change)="selectFile($event)" formControlName="image">
+                <br>
+                <input type="submit" value="Actualizar">
+            </form>
+        </div>
+    </section>
+</div>

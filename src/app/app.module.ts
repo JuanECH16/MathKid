@@ -19,6 +19,9 @@ import { provideHttpClient } from '@angular/common/http';
 import { UsersListComponent } from './components/users-list/users-list.component';
 import { DomSecurePipe } from './data/pipes/dom-secure.pipe';
 import { ContactComponent } from './modules/contact/contact.component';
+import { UserUpdateComponent } from './modules/user-update/user-update.component';
+import { UserLoginComponent } from './modules/user-login/user-login.component';
+import { UserComponent } from './modules/user/user.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,10 @@ import { ContactComponent } from './modules/contact/contact.component';
     GameDisplayComponent,
     UsersListComponent,
     DomSecurePipe,
-    ContactComponent
+    ContactComponent,
+    UserUpdateComponent,
+    UserLoginComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

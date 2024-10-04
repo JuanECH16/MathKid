@@ -1,7 +1,7 @@
 export interface Contacts{
+    id?:string
     name:string,
     phone:number,
     email:string,
-    image:string,
-    id?:string
+    image:string
 }

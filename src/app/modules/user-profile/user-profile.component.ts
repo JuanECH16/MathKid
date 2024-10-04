@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './user-profile.component.scss'
 })
 export class UserProfileComponent {
-  userName = 'Juan';
+  /*userName = 'Juan';
   isLoggedIn = false;
 
   greet(){
@@ -15,5 +15,5 @@ export class UserProfileComponent {
 
   logIn(){
     this.isLoggedIn = true;
-  }
+  }*/
 }

@@ -1,4 +1,4 @@
-<p>users-profile works!</p>
+<!-- <p>users-profile works!</p>
 
 <br>
 
@@ -6,17 +6,19 @@
     <img (click)="greet()" src="https://github.com/JuanECH16.png" alt="photo">
     <p>Bienvenido, {{ userName }} !</p>
 
-    <!-- Defer es que cargue los elementos una vez que la cpu no tiene carga alguna, osea al final -->
-    <!-- on viewport es para que cargue los elementos una vez se vean   -->
+    // Defer es que cargue los elementos una vez que la cpu no tiene carga alguna, osea al final
+    // on viewport es para que cargue los elementos una vez se vean
     @defer (on viewport) {
-        <!-- <app-games username="{{ userName }}"></app-games> -->
-        <!-- <app-games></app-games> -->
-    }@placeholder { <!-- Crea un espacio para los elementos -->
+        // <app-games username="{{ userName }}"></app-games>
+        // <app-games></app-games>
+    }@placeholder { // Crea un espacio para los elementos
         <p>Espacio donde van los juegos</p>
-    }@loading { <!-- Mensaje que va a salir mientras termina de cargar los elementos -->
+    }@loading { // Mensaje que va a salir mientras termina de cargar los elementos
         <p>Cargando juegos...</p>
     }
 } @else {
     <p>No está logeado</p>
     <button (click)="logIn()">Log in</button>
-}
+} -->
+
+<app-users-list></app-users-list>

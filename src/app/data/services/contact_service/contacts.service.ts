@@ -14,8 +14,20 @@ export class ContactsService {
 
   constructor(private http: HttpClient) { }
 
-  getContacts(tableName: string): Observable<any> {
+  getContacts(): Observable<any> {
+    return this.http.get<any>(`${this.url}/index.php`).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  /*getContactsGame(tableName: string): Observable<any> {
     return this.http.get<any>(`${this.url}${tableName}/index.php`).pipe(
+      catchError(this.handleError)
+    );
+  }*/
+
+  getContact(id:string): Observable<Contacts[]> {
+    return this.http.get<Contacts[]>(`${this.url}/index.php?id=${id}`).pipe(
       catchError(this.handleError)
     );
   }
@@ -38,8 +50,8 @@ export class ContactsService {
     );
   }
 
-  private handleError(error: any) {
-    console.error('An error occurred:', error);
-    return throwError(() => error);
+  private handleError(error: any): Observable<never> {
+    console.error('An error occurred', error);
+    return throwError('Something bad happened; please try again later.');
   }
 }

@@ -52,7 +52,7 @@ export class HeaderComponent implements OnInit {
       this.router.navigate(['']);
     } else {
       // Redirigir a la página login
-      this.router.navigate(['/user-register']);
+      this.router.navigate(['/user']);
     }
   }
 

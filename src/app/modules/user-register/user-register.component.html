@@ -44,22 +44,33 @@
     </section>
 
     <section>
-        <h1>Ingresar Datos Contacto</h1>
+        <div id="userContainer">
+            <div id="containerRegister">
+                <div id="back">
+                    <input type="button" value="<" onclick="mostrarElementLogin()">
+                </div> 
+                <h2>Registro</h2>
     
-        <br>
-        
-        <div>
-            <form (ngSubmit)="addContact()" [formGroup]="Form" autocomplete="off">
-                <input type="text" placeholder="Nombre" formControlName="name"  required>
                 <br>
-                <input type="text" placeholder="Telefono" formControlName="phone">
-                <br>
-                <input type="email" placeholder="Email" formControlName="email" required>
-                <br>
-                <input type="file" accept="image/*" (change)="selectFile($event)" formControlName="image">
-                <br>
-                <input type="submit" value="Guardar">
-            </form>
+                
+                <div>
+                    <form (ngSubmit)="addContact()" [formGroup]="Form" autocomplete="off">
+                        <label for="name">Nombre:</label>
+                        <input type="text" placeholder="Nombre" formControlName="name" name="name" required>
+                        <br>
+                        <label for="phone">Teléfono:</label>
+                        <input type="text" placeholder="Telefono" formControlName="phone" name="phone">
+                        <br>
+                        <label for="phone">Email:</label>
+                        <input type="email" placeholder="Email" formControlName="email" name="email" required>
+                        <br>
+                        <label for="image">Image:</label>
+                        <input type="file" accept="image/*" (change)="selectFile($event)" formControlName="image" name="image">
+                        <br>
+                        <input type="submit" value="Registrarse">
+                    </form>
+                </div>
+            </div>
         </div>
     </section>
 </main>

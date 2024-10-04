@@ -1,0 +1,7 @@
+<div *ngIf="login; else offline">
+    <app-user-profile></app-user-profile>
+</div>
+
+<ng-template #offline>
+    <app-user-login></app-user-login>
+</ng-template>
