@@ -139,7 +139,7 @@
             var opcionSeleccionada = select.options[select.selectedIndex].value;
 
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", "scoreTable.php", true);
+            xhr.open("POST", "http://localhost/Php-Backend/scoreTable.php", true);
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         
             xhr.onreadystatechange = function() {

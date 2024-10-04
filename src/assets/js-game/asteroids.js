@@ -1086,7 +1086,7 @@ document.addEventListener("DOMContentLoaded", function() {
         };
     
         // Especificar el método y la URL del servidor PHP
-        xhttp.open("POST", "saveDataGame.php", true);
+        xhttp.open("POST", "http://localhost/Php-Backend/saveDataGame.php", true);
             
         // Establecer las cabeceras de la solicitud
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
