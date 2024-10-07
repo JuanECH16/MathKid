@@ -13,6 +13,6 @@ export class AppComponent {
 
   constructor(private sanitizer: DomSanitizer) {
     // URL inicial del iframe
-    this.iframeUrl = this.sanitizer.bypassSecurityTrustResourceUrl('/assets/godot-game');
+    this.iframeUrl = this.sanitizer.bypassSecurityTrustResourceUrl('assets/godot-game/index.html');
   }
 }

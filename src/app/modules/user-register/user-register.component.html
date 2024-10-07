@@ -1,15 +1,15 @@
 <main>
-    <section>
+<!--<section>
         <div id="userContainer">
             <div id="containerRegister">
                 <div id="back">
                     <input type="button" value="<" onclick="mostrarElementLogin()">
                 </div>  
-                <h2>Registro</h2>
+                <h2>Registro</h2> -->
                 <!-- Formulario -->
-                <form id="myForm">
+                <!-- <form id="myForm"> -->
                     <!-- Puesto para usar la operación CRUD -->
-                    <div style="display: none;">
+                    <!-- <div style="display: none;">
                         <label for="operation-names">Escoja una operación CRUD:</label>
                         <select id="optionsCRUD" name="operation">
                             <option value="create">Crear</option>
@@ -35,13 +35,13 @@
             
                 <br>
                 <hr>
-                <br>
+                <br> -->
             
                 <!-- Aquí se mostrará la tabla de resultados -->
-                <div id="tabla-resultados"></div>
+                <!-- <div id="tabla-resultados"></div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <section>
         <div id="userContainer">
@@ -64,6 +64,9 @@
                         <label for="phone">Email:</label>
                         <input type="email" placeholder="Email" formControlName="email" name="email" required>
                         <br>
+                        <label for="password">Contraseña:</label>
+                        <input type="password" id="password" name="password" placeholder="Password">
+                        <br>                    
                         <label for="image">Image:</label>
                         <input type="file" accept="image/*" (change)="selectFile($event)" formControlName="image" name="image">
                         <br>

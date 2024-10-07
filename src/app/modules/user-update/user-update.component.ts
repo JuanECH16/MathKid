@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { ContactsService } from '../../data/services/contact_service/contacts.service';
 import { UploadImg } from '../../data/interfaces/uploadImg.interface';
 import { Contacts } from '../../data/interfaces/contacts.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-update',
@@ -17,7 +18,7 @@ export class UserUpdateComponent implements OnInit{
   file:UploadImg;
   public Form: FormGroup;
 
-  constructor(private contactSvc: ContactsService, private fb: FormBuilder) {
+  constructor(private contactSvc: ContactsService, private fb: FormBuilder, private _router: Router) {
     this.file = {
       nameFile: "",
       base64textString: null
@@ -76,5 +77,19 @@ export class UserUpdateComponent implements OnInit{
     this.Form.reset();
     localStorage.removeItem('idContact');
     localStorage.removeItem('idImage');
+  }
+
+  submitForm(correo: string) {
+    const filteredEmail = this.filterEmail(correo);
+    localStorage.setItem("userNameStg", filteredEmail);
+    this._router.navigate(['/home']);
+  }
+
+  private filterEmail(email: string): string {
+    const atIndex = email.indexOf('@');
+    if (atIndex !== -1) {
+      return email.substring(0, atIndex);
+    }
+    return email;
   }
 }

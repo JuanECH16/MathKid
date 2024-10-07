@@ -7,10 +7,12 @@
     }
 </ul> -->
 
-<iframe 
-  [src]="gameUrl | safeUrl"
-  frameborder="0" 
-  allowfullscreen 
-  sandbox="allow-scripts allow-same-origin" 
-  title="Juego">
-</iframe>
+<div class="iframe-container">
+  <iframe 
+    [src]="gameUrl | safeUrl"
+    frameborder="0" 
+    allowfullscreen 
+    sandbox="allow-scripts allow-same-origin" 
+    title="Juego">
+  </iframe>
+</div>

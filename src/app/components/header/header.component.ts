@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
   nameUser: string | null = '';
@@ -16,16 +16,19 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.nameUser = localStorage.getItem('userNameStg');
     this.loginUserStoraged = localStorage.getItem('userLoggedStg');
+    this.updateUserName();
   }
 
-  toggleMenu() {
+  toggleMenu(event: Event) {
+    event.preventDefault(); // Prevenir el comportamiento predeterminado del enlace
     const menu = document.getElementById('optionsHeader');
     if (menu) {
       menu.classList.toggle('active');
     }
   }
 
-  nameSelect() {
+  nameSelect(event: Event) {
+    event.preventDefault(); // Prevenir el comportamiento predeterminado del enlace
     let nameStoraged = localStorage.getItem('userNameStg');
 
     if (this.loginUserStoraged === 'false') {
@@ -41,7 +44,7 @@ export class HeaderComponent implements OnInit {
     this.numPressedAdmin += 1;
     console.log(this.numPressedAdmin);
     if (this.numPressedAdmin === 3) {
-      this.router.navigate(['/game-test']);
+      this.router.navigate(['/user/profile']);
       this.numPressedAdmin = 0;
     }
   }
@@ -57,16 +60,9 @@ export class HeaderComponent implements OnInit {
   }
 
   emptyAll() {
-    let nameUser = document.getElementById('userName');
-
-    localStorage.setItem('userNameStg', '');
+    //localStorage.setItem('userNameStg', '');
     localStorage.setItem('userLoggedStg', 'false');
-
-    /*if(nameUser !== null){
-        nameUser.style.display = "none";
-    }else{
-        nameUser.style.display = "block";
-    }*/
+    this.updateUserName();
 
     const miCuenta = document.getElementById('login');
     if (miCuenta) {
@@ -76,7 +72,15 @@ export class HeaderComponent implements OnInit {
 
   handleLoginClick(event: Event) {
     event.preventDefault(); // Prevenir el comportamiento predeterminado del enlace
-    this.emptyAll();
+    //this.emptyAll();
     this.changePage();
+  }
+
+  updateUserName() {
+    const userNameElement = document.getElementById('userName');
+    if (userNameElement) {
+      const userName = localStorage.getItem('userNameStg');
+      userNameElement.textContent = userName ? userName : 'Invitado';
+    }
   }
 }
