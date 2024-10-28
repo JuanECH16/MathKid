@@ -3,8 +3,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { v4 as uuidv4 } from 'uuid';
 import { ContactsService } from '../../data/services/contact_service/contacts.service';
 import { UploadImg } from '../../data/interfaces/uploadImg.interface';
-import { Contacts } from '../../data/interfaces/contacts.interface';
 import { Router } from '@angular/router';
+import { User } from '../../data/interfaces/users.interface';
 
 @Component({
   selector: 'app-user-update',
@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class UserUpdateComponent implements OnInit{
   uuid = uuidv4();
-  contact:any;
+  user:User[]=[];
   
   file:UploadImg;
   public Form: FormGroup;
@@ -25,10 +25,12 @@ export class UserUpdateComponent implements OnInit{
     }
 
     this.Form = this.fb.group({
-      name:[''],
-      phone:[''],
+      //image:null,
+      userName:[''],
       email:[''],
-      image:null
+      password:[''],
+      name:[''],
+      lastName:['']     
     })
   }
   ngOnInit() {
@@ -54,18 +56,19 @@ export class UserUpdateComponent implements OnInit{
   }
 
   getContact(id:string){
-    this.contactSvc.getContact(id).subscribe((res: Contacts[]) => {
-      this.contact = res;
+    this.contactSvc.getContact(id).subscribe((res: User[]) => {
+      this.user = res;
 
       this.Form.setValue({
-        name: this.contact[0]['name'],
-        phone: this.contact[0]['phone'],
-        email: this.contact[0]['email'],
-        image: null
+        userName: this.user[0]['userName'],
+        email: this.user[0]['email'],
+        password: this.user[0]['password'],
+        name: this.user[0]['name'],
+        lastName: this.user[0]['lastName']
       });
 
-      //localStorage.setItem('idContact',this.contact[0]['id']);
-      //localStorage.setItem('idImage',this.contact[0]['image']);
+      localStorage.setItem('idContact',this.user[0]['id_user']!);
+      //localStorage.setItem('idImage',this.user[0]['image']!);
     });
   }
 
@@ -76,7 +79,7 @@ export class UserUpdateComponent implements OnInit{
   closeForm(){
     this.Form.reset();
     localStorage.removeItem('idContact');
-    localStorage.removeItem('idImage');
+    //localStorage.removeItem('idImage');
   }
 
   submitForm(correo: string) {

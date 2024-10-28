@@ -8,12 +8,10 @@
             <form (ngSubmit)="editContact()" [formGroup]="Form" autocomplete="off">
                 <input type="text" placeholder="Nombre" formControlName="name" #name required>
                 <br>
-                <input type="text" placeholder="Telefono" formControlName="phone">
-                <br>
                 <input type="email" placeholder="Email" formControlName="email" required>
                 <br>
-                <input type="file" accept="image/*" (change)="selectFile($event)" formControlName="image">
-                <br>
+                <!-- <input type="file" accept="image/*" (change)="selectFile($event)" formControlName="image">
+                <br> -->
                 <button type="button" (click)="submitForm(name.value);">Actualizar</button>
             </form>
         </div>

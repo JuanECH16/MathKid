@@ -2,8 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { Contacts } from '../../interfaces/contacts.interface';
 import { UploadImg } from '../../interfaces/uploadImg.interface';
+import { User } from '../../interfaces/users.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -14,27 +14,28 @@ export class ContactsService {
 
   constructor(private http: HttpClient) { }
 
-  getContacts(): Observable<any> {
-    return this.http.get<any>(`${this.url}/index.php`).pipe(
+  getContacts(): Observable<User[]> {
+    return this.http.get<User[]>(`${this.url}users.php`).pipe(
       catchError(this.handleError)
     );
   }
 
-  /*getContactsGame(tableName: string): Observable<any> {
-    return this.http.get<any>(`${this.url}${tableName}/index.php`).pipe(
+  /*getContactsGame(tableName: string): Observable<User> {
+    return this.http.get<User>(`${this.url}${tableName}/users.php`).pipe(
       catchError(this.handleError)
     );
   }*/
 
-  getContact(id:string): Observable<Contacts[]> {
-    return this.http.get<Contacts[]>(`${this.url}/index.php?id=${id}`).pipe(
+  getContact(id:string): Observable<User[]> {
+    return this.http.get<User[]>(`${this.url}users.php?id=${id}`).pipe(
       catchError(this.handleError)
     );
   }
 
-  addContact(formData: Contacts, tableName: string): Observable<any> {
+  addContact(formData: User, tableName: string): Observable<User> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.post<any>(`${this.url}${tableName}/index.php`, formData, { headers }).pipe(
+    
+    return this.http.post<User>(`${this.url}users.php`, formData, { headers }).pipe(
       catchError(this.handleError)
     );
   }
@@ -45,7 +46,7 @@ export class ContactsService {
     }
 
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.post<any>(`${this.url}views/img/index.php`, JSON.stringify(file), { headers }).pipe(
+    return this.http.post<User>(`${this.url}views/img/index.php`, JSON.stringify(file), { headers }).pipe(
       catchError(this.handleError)
     );
   }

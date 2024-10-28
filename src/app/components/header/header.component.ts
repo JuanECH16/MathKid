@@ -29,13 +29,13 @@ export class HeaderComponent implements OnInit {
 
   nameSelect(event: Event) {
     event.preventDefault(); // Prevenir el comportamiento predeterminado del enlace
-    let nameStoraged = localStorage.getItem('userNameStg');
+    this.nameUser = localStorage.getItem('userNameStg');
 
     if (this.loginUserStoraged === 'false') {
-      nameStoraged = 'Invitado';
+      this.nameUser = 'Invitado';
     }
 
-    alert('Hola ' + nameStoraged + ', ¿Cómo vas?');
+    alert('Hola ' + this.nameUser + ', ¿Cómo vas?');
 
     this.activateAdmin();
   }
@@ -50,9 +50,9 @@ export class HeaderComponent implements OnInit {
   }
 
   changePage() {
+      this.router.navigate([''])
     if (this.loginUserStoraged === 'true') {
-      // Redirigir a la página principal
-      this.router.navigate(['']);
+      // Redirigir a la página principal;
     } else {
       // Redirigir a la página login
       this.router.navigate(['/user']);
@@ -79,8 +79,8 @@ export class HeaderComponent implements OnInit {
   updateUserName() {
     const userNameElement = document.getElementById('userName');
     if (userNameElement) {
-      const userName = localStorage.getItem('userNameStg');
-      userNameElement.textContent = userName ? userName : 'Invitado';
+      this.nameUser = localStorage.getItem('userNameStg');
+      userNameElement.textContent = this.nameUser ? this.nameUser : 'Invitado';
     }
   }
 }

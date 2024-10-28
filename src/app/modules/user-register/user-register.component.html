@@ -56,20 +56,23 @@
                 <div>
                     <form (ngSubmit)="addContact()" [formGroup]="Form" autocomplete="off">
                         <label for="name">Nombre:</label>
-                        <input type="text" placeholder="Nombre" formControlName="name" name="name" required>
+                        <input type="text" formControlName="name" name="name" placeholder="Nombre" required>
                         <br>
-                        <label for="phone">Teléfono:</label>
-                        <input type="text" placeholder="Telefono" formControlName="phone" name="phone">
+                        <label for="lastName">LastName:</label>
+                        <input type="text" formControlName="lastName" id="lastName" name="lastName" placeholder="LastName" required>
                         <br>
-                        <label for="phone">Email:</label>
-                        <input type="email" placeholder="Email" formControlName="email" name="email" required>
+                        <label for="email">Email:</label>
+                        <input type="email" formControlName="email" name="email" placeholder="Email" required>
                         <br>
                         <label for="password">Contraseña:</label>
-                        <input type="password" id="password" name="password" placeholder="Password">
-                        <br>                    
-                        <label for="image">Image:</label>
+                        <input type="password" formControlName="password" id="password" name="password" placeholder="Password" required>
+                        <br>   
+                        <label for="userName">UserName:</label>
+                        <input type="text" formControlName="userName" id="userName" name="userName" placeholder="UserName" required>
+                        <br>                   
+                        <!-- <label for="image">Image:</label>
                         <input type="file" accept="image/*" (change)="selectFile($event)" formControlName="image" name="image">
-                        <br>
+                        <br> -->
                         <input type="submit" value="Registrarse">
                     </form>
                 </div>

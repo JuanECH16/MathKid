@@ -5,26 +5,30 @@
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>id</th>
-                    <th>Imagen</th>
-                    <th>Nombre</th>
-                    <th>Telefono</th>
+                    <th>Id</th>
+                    <!-- <th>Image</th> -->
+                    <th>UserName</th>
                     <th>Email</th>
-                    <th>Acciones</th>
+                    <th>Password</th>
+                    <th>Name</th>
+                    <th>LastName</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let contact of contacts; let i = index;">
+                <tr *ngFor="let user of users; let i = index;">
                     <td scope="row">{{i + 1}}</td>
-                    <td>{{contact.id}}</td>
+                    <td>{{user.id_user}}</td>
+                    <!-- <td>
+                        <img [src]="user.image! | domSecure" (error)="setDefaultImage($event)" alt="img-user">
+                    </td> -->
+                    <td>{{user.userName}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.password}}</td>
+                    <td>{{user.name}}</td>
+                    <td>{{user.lastName}}</td>
                     <td>
-                        <img [src]="contact.image | domSecure" (error)="setDefaultImage($event)" alt="img-user">
-                    </td>
-                    <td>{{contact.name}}</td>
-                    <td>{{contact.phone}}</td>
-                    <td>{{contact.email}}</td>
-                    <td>
-                        <button (click)="getContact(contact.id)">Update</button>
+                        <button (click)="getContact(user.id_user!)">Update</button>
                         <br>
                         <button>Delete</button>
                     </td>

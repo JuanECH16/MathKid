@@ -2,8 +2,8 @@ import { Component, Input, OnInit, Output } from '@angular/core';
 import { ContactsService } from '../../data/services/contact_service/contacts.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { UploadImg } from '../../data/interfaces/uploadImg.interface';
-import { Contacts } from '../../data/interfaces/contacts.interface';
 import { Router } from '@angular/router';
+import { User } from '../../data/interfaces/users.interface';
 
 
 @Component({
@@ -13,8 +13,8 @@ import { Router } from '@angular/router';
 })
 export class UsersListComponent implements OnInit {
 
-  contacts:any=[];
-  //@Input() contact:any;
+  users:User[]=[];
+  //@Input() users:any;
 
   file:UploadImg;
   noImage = '../assets/img/NoImage.webp';
@@ -28,10 +28,11 @@ export class UsersListComponent implements OnInit {
     }
 
     this.Form = this.fb.group({
-      name:[''],
-      phone:[''],
+      userName:[''],
       email:[''],
-      image:null
+      password:[''],
+      name:[''],
+      lastName:['']     
     })
   }
   
@@ -40,30 +41,30 @@ export class UsersListComponent implements OnInit {
   }
 
   getContacts(){
-    const tableName = localStorage.getItem('tableName') || 'contacto'; // Especifica el nombre de la tabla aquí
-    this.contactSvc.getContacts().subscribe((res: Contacts[]) => {
-      this.contacts = res;
+    const tableName = localStorage.getItem('tableName') || 'users'; // Especifica el nombre de la tabla aquí
+    this.contactSvc.getContacts().subscribe((res: User[]) => {
+      this.users = res;
     });
   }
 
-  setDefaultImage(event: Event) {
-    const element = event.target as HTMLImageElement;
-    element.src = this.noImage;
-  }
+  // setDefaultImage(event: Event) {
+  //   const element = event.target as HTMLImageElement;
+  //   element.src = this.noImage;
+  // }
 
   getContact(id:string){
-    this.contactSvc.getContact(id).subscribe((res: Contacts[]) => {
-      this.contacts = res;
+    this.contactSvc.getContact(id).subscribe((res: User[]) => {
+      this.users = res;
 
       this.Form.setValue({
-        name: this.contacts[0]['name'],
-        phone: this.contacts[0]['phone'],
-        email: this.contacts[0]['email'],
-        image: null
+        userName: this.users[0]['userName'],
+        email: this.users[0]['email'],
+        password: this.users[0]['password'],
+        name: this.users[0]['name'],
+        lastName: this.users[0]['lastName']
       });
 
-      localStorage.setItem('idContact',this.contacts[0]['id']);
-      localStorage.setItem('idImage',this.contacts[0]['image']);
+      localStorage.setItem('idContact',this.users[0]['id_user']!);
     });
 
     this.updateUser();
