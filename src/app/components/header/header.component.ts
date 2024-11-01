@@ -9,7 +9,8 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
   nameUser: string | null = '';
   loginUserStoraged: string | null = '';
-  numPressedAdmin = 0;
+
+  numPressedAdmin: number = 0;
 
   constructor(private router: Router) {}
 
@@ -29,11 +30,8 @@ export class HeaderComponent implements OnInit {
 
   nameSelect(event: Event) {
     event.preventDefault(); // Prevenir el comportamiento predeterminado del enlace
-    this.nameUser = localStorage.getItem('userNameStg');
-
-    if (this.loginUserStoraged === 'false') {
-      this.nameUser = 'Invitado';
-    }
+    
+    this.checkUser();
 
     alert('Hola ' + this.nameUser + ', ¿Cómo vas?');
 
@@ -50,16 +48,16 @@ export class HeaderComponent implements OnInit {
   }
 
   changePage() {
-      this.router.navigate([''])
     if (this.loginUserStoraged === 'true') {
-      // Redirigir a la página principal;
+      // Redirigir al perfil del usuario
+      this.router.navigate(['/user/profile']);
     } else {
       // Redirigir a la página login
-      this.router.navigate(['/user']);
+      this.router.navigate(['/user/login']);
     }
   }
 
-  emptyAll() {
+  /*emptyAll() {
     //localStorage.setItem('userNameStg', '');
     localStorage.setItem('userLoggedStg', 'false');
     this.updateUserName();
@@ -68,7 +66,7 @@ export class HeaderComponent implements OnInit {
     if (miCuenta) {
       miCuenta.textContent = 'Iniciar Sesión';
     }
-  }
+  }*/
 
   handleLoginClick(event: Event) {
     event.preventDefault(); // Prevenir el comportamiento predeterminado del enlace
@@ -78,9 +76,33 @@ export class HeaderComponent implements OnInit {
 
   updateUserName() {
     const userNameElement = document.getElementById('userName');
-    if (userNameElement) {
-      this.nameUser = localStorage.getItem('userNameStg');
-      userNameElement.textContent = this.nameUser ? this.nameUser : 'Invitado';
+    const loginBtnMsg = document.getElementById('login');
+    if(this.checkUser()){
+      if (userNameElement) {
+
+        userNameElement.textContent = this.nameUser;
+  
+        if(loginBtnMsg){
+          loginBtnMsg.textContent = 'Mi Cuenta';
+        }
+      }
+    }else{
+      if(loginBtnMsg){
+        loginBtnMsg.textContent = 'Iniciar Sesión';
+      }
+    }
+  }
+
+  checkUser(){
+    this.nameUser = localStorage.getItem('userNameStg');
+
+    if(this.loginUserStoraged == "true"){
+      return true;
+    }else{
+      this.nameUser = 'Invitado';
+      localStorage.setItem('idContact', "4");
+      localStorage.setItem('userNameStg', 'Invitado');
+      return false;
     }
   }
 }

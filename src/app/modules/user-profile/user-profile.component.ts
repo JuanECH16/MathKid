@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-profile',
@@ -16,4 +17,14 @@ export class UserProfileComponent {
   logIn(){
     this.isLoggedIn = true;
   }*/
+
+  constructor(private _router: Router) {}
+
+  logOut(){
+    localStorage.setItem('userLoggedStg', 'false');
+    localStorage.setItem('userNameStg','');
+    localStorage.setItem('idContact','');
+    // location.reload();
+    this._router.navigate(['']);
+  }
 }

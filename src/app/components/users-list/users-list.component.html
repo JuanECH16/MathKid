@@ -28,9 +28,9 @@
                     <td>{{user.name}}</td>
                     <td>{{user.lastName}}</td>
                     <td>
-                        <button (click)="getContact(user.id_user!)">Update</button>
+                        <button (click)="updateUser(user.id_user!)">Update</button>
                         <br>
-                        <button>Delete</button>
+                        <button (click)="deleteUser(user.id_user!)">Delete</button>
                     </td>
                 </tr>
             </tbody>

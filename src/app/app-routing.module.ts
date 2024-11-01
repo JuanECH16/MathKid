@@ -10,6 +10,7 @@ import { UserLoginComponent } from './modules/user-login/user-login.component';
 import { UserProfileComponent } from './modules/user-profile/user-profile.component';
 import { UserRegisterComponent } from './modules/user-register/user-register.component';
 import { UserUpdateComponent } from './modules/user-update/user-update.component';
+import { UserDeleteComponent } from './modules/user-delete/user-delete.component';
 import { UsersListComponent } from './components/users-list/users-list.component';
 import { ContactComponent } from './modules/contact/contact.component';
 
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'user/profile', component: UserProfileComponent },
   { path: 'user/register', component: UserRegisterComponent },
   { path: 'user/update', component: UserUpdateComponent },
+  { path: 'user/delete', component: UserDeleteComponent },
   { path: 'users-list', component: UsersListComponent },
   { path: 'contact', component: ContactComponent },
   { path: '**', redirectTo: ''}

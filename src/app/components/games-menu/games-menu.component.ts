@@ -23,8 +23,9 @@ export class GamesMenuComponent implements OnInit {
 
   loadGame(gamePath: string, gameName: string) {
     this.gameService.setGameUrl(gamePath);
-    this.router.navigate(['/game-display']);
+    localStorage.setItem('gameUrl', gamePath);
     localStorage.setItem('tableName', gameName);
+    this.router.navigate(['/game-display']);
   }
 
   getGames(id:string){

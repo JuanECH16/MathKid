@@ -21,15 +21,25 @@ export class GameComponent {
   //   }
   // ];
 
-  gameUrl: string = '';
+  gameUrl: any = '';
 
   constructor(private gameService: GameService, private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.gameService.gameUrl$.subscribe(url => {
+    if(this.loadGame()){
+      this.loadLastGame();
+    }
+  }
+
+  loadGame(){
+    return this.gameService.gameUrl$.subscribe(url => {
       this.gameUrl = url;
       console.log(`URL recibida en display: ${this.gameUrl}`);
       window.scrollTo(0, 0);
     });
+  }
+
+  loadLastGame() {
+    this.gameService.setGameUrl(localStorage.getItem('gameUrl') || '');
   }
 }

@@ -22,6 +22,7 @@ import { ContactComponent } from './modules/contact/contact.component';
 import { UserUpdateComponent } from './modules/user-update/user-update.component';
 import { UserLoginComponent } from './modules/user-login/user-login.component';
 import { UserComponent } from './modules/user/user.component';
+import { UserDeleteComponent } from './modules/user-delete/user-delete.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { UserComponent } from './modules/user/user.component';
     ContactComponent,
     UserUpdateComponent,
     UserLoginComponent,
-    UserComponent
+    UserComponent,
+    UserDeleteComponent
   ],
   imports: [
     BrowserModule,

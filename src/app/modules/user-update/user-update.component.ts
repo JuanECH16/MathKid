@@ -13,10 +13,11 @@ import { User } from '../../data/interfaces/users.interface';
 })
 export class UserUpdateComponent implements OnInit{
   uuid = uuidv4();
-  user:User[]=[];
+  user:User[] = [];
   
   file:UploadImg;
   public Form: FormGroup;
+  form!:User;
 
   constructor(private contactSvc: ContactsService, private fb: FormBuilder, private _router: Router) {
     this.file = {
@@ -38,7 +39,7 @@ export class UserUpdateComponent implements OnInit{
     this.closeForm();
   }
   
-  selectFile(event:any){
+  /*selectFile(event:any){
     var files = event.target.files;
     var file = files[0];
     this.file.nameFile = `${this.uuid}-${file.name}`;
@@ -53,46 +54,64 @@ export class UserUpdateComponent implements OnInit{
   _handleReaderLoaded(readerEvent:any){
     var reader = readerEvent.target;
     this.file.base64textString = btoa(reader);
-  }
+  }*/
 
   getContact(id:string){
     this.contactSvc.getContact(id).subscribe((res: User[]) => {
       this.user = res;
 
       this.Form.setValue({
-        userName: this.user[0]['userName'],
-        email: this.user[0]['email'],
-        password: this.user[0]['password'],
-        name: this.user[0]['name'],
-        lastName: this.user[0]['lastName']
+        userName: this.user[0].userName,
+        email: this.user[0].email,
+        password: this.user[0].password,
+        name: this.user[0].name,
+        lastName: this.user[0].lastName
       });
 
-      localStorage.setItem('idContact',this.user[0]['id_user']!);
+      localStorage.setItem('idContact',this.user[0].id_user!);
       //localStorage.setItem('idImage',this.user[0]['image']!);
     });
   }
 
-  editContact(){
-    
-  }
-
   closeForm(){
     this.Form.reset();
-    localStorage.removeItem('idContact');
+    //localStorage.removeItem('idContact');
     //localStorage.removeItem('idImage');
   }
 
-  submitForm(correo: string) {
+  /*submitForm(correo: string) {
     const filteredEmail = this.filterEmail(correo);
     localStorage.setItem("userNameStg", filteredEmail);
-    this._router.navigate(['/home']);
+    this._router.navigate(['']);
+  }*/
+
+  editContact(){
+    this.form = {
+      id_user: localStorage.getItem('idContact')!,
+      userName: this.Form.value.userName,
+      email: this.Form.value.email,
+      password: this.Form.value.password,
+      name: this.Form.value.name,
+      lastName: this.Form.value.lastName
+    };
+
+    this.contactSvc.editContact(this.form).subscribe((res: User[]) => {
+      const index = this.form.id_user;
+      if(index != null){
+        this.user = res;
+        localStorage.setItem('userNameStg', this.form.userName!);
+      }
+      
+      console.log(res);
+      this._router.navigate(['']);
+    });
   }
 
-  private filterEmail(email: string): string {
+  /*private filterEmail(email: string): string {
     const atIndex = email.indexOf('@');
     if (atIndex !== -1) {
       return email.substring(0, atIndex);
     }
     return email;
-  }
+  }*/
 }

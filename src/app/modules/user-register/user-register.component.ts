@@ -5,6 +5,7 @@ import { UploadImg } from '../../data/interfaces/uploadImg.interface';
 import Swal from 'sweetalert2';
 import { v4 as uuidv4 } from 'uuid';
 import { User } from '../../data/interfaces/users.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-register',
@@ -19,7 +20,7 @@ export class UserRegisterComponent {
 
   uuid = uuidv4();
 
-  constructor(private contactSvc: ContactsService, private fb: FormBuilder) {
+  constructor(private contactSvc: ContactsService, private fb: FormBuilder, private _router: Router) {
     /*this.file = {
       nameFile: "",
       base64textString: null
@@ -60,9 +61,7 @@ export class UserRegisterComponent {
       lastName: this.Form.value.lastName
     };
   
-    const tableName = 'users'; // Especifica el nombre de la tabla aquí
-  
-    this.contactSvc.addContact(this.form, tableName).subscribe({
+    this.contactSvc.addContact(this.form).subscribe({
       next: res => {
         //this.upload();
   
@@ -73,7 +72,8 @@ export class UserRegisterComponent {
           showConfirmButton: true
         }).then((result) => {
           if (result) {
-            location.reload();
+            //location.reload();
+            this._router.navigate(['/user/login']);
           }
         });
       },
