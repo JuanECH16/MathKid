@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ContactsService } from '../../data/services/contact_service/contacts.service';
 
 @Component({
   selector: 'app-header',
@@ -12,12 +13,13 @@ export class HeaderComponent implements OnInit {
 
   numPressedAdmin: number = 0;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private _contactSvc: ContactsService, private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
     this.nameUser = localStorage.getItem('userNameStg');
     this.loginUserStoraged = localStorage.getItem('userLoggedStg');
     this.updateUserName();
+    this.cdr.detectChanges();
   }
 
   toggleMenu(event: Event) {
@@ -77,20 +79,11 @@ export class HeaderComponent implements OnInit {
   updateUserName() {
     const userNameElement = document.getElementById('userName');
     const loginBtnMsg = document.getElementById('login');
-    if(this.checkUser()){
-      if (userNameElement) {
 
-        userNameElement.textContent = this.nameUser;
-  
-        if(loginBtnMsg){
-          loginBtnMsg.textContent = 'Mi Cuenta';
-        }
-      }
-    }else{
-      if(loginBtnMsg){
-        loginBtnMsg.textContent = 'Iniciar Sesión';
-      }
-    }
+    this._contactSvc.updateUserName(userNameElement!, loginBtnMsg!, this.checkUser(), this.nameUser!).subscribe((data: boolean) => {
+      console.log(data);
+      this.cdr.detectChanges();
+    });
   }
 
   checkUser(){

@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { User } from '../../interfaces/users.interface';
 // import { UploadImg } from '../../interfaces/uploadImg.interface';
@@ -14,6 +14,31 @@ export class ContactsService {
   // private url = 'https://sql109.infinityfree.com/apiphpserver/';
 
   constructor(private http: HttpClient) { }
+
+  updateUserName(userName?: HTMLElement, btnMsg?: HTMLElement, checkUser?: boolean, nameUser?: string): Observable<boolean> {
+    const userNameElement = userName;
+    const loginBtnMsg = btnMsg;
+
+    let update: boolean = false;
+
+    if(checkUser){
+      if (userNameElement) {
+
+        userNameElement.textContent = nameUser ?? 'Invitado';
+  
+        if(loginBtnMsg){
+          loginBtnMsg.textContent = 'Mi Cuenta';
+          update = true;
+        }
+      }
+    }else{
+      if(loginBtnMsg){
+        loginBtnMsg.textContent = 'Iniciar Sesión';
+        update = false;
+      }
+    }
+    return of(update);
+  }
 
   // Recoge todos los contactos de la base de datos
   getContacts(): Observable<User[]> {
