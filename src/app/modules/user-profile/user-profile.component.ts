@@ -25,6 +25,11 @@ export class UserProfileComponent {
     localStorage.setItem('userNameStg','');
     localStorage.setItem('idContact','');
     // location.reload();
-    this._router.navigate(['']);
+
+    // Navegar a la nueva ruta
+    this._router.navigate(['']).then(() => {
+      // Actualizar la sesión después de la navegación
+      sessionStorage.clear();
+    });
   }
 }

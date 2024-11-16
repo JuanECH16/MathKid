@@ -38,6 +38,7 @@ export class UserLoginComponent {
         localStorage.setItem("userNameStg", data[0].userName);
         localStorage.setItem('userLoggedStg', "true");
         localStorage.setItem('idContact', data[0].id_user!);
+        sessionStorage.setItem('idContact', data[0].id_user!);
         this._router.navigate(['/home']);
       }
     });
