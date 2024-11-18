@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
       console.log("Primera vez que entra");
       
       if(localStorage.getItem('userNameStg') != "Invitado"){
-        window.location.reload();
+        // window.location.reload();
         this.login = true;
       }
     }else{

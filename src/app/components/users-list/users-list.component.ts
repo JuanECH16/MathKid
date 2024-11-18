@@ -65,4 +65,17 @@ export class UsersListComponent implements OnInit {
       localStorage.setItem('idContact',this.users[0].id_user!);
     });
   }
+
+  logOut(){
+    localStorage.setItem('userLoggedStg', 'false');
+    localStorage.setItem('userNameStg','');
+    localStorage.setItem('idContact','');
+    // location.reload();
+
+    // Navegar a la nueva ruta
+    this._router.navigate(['']).then(() => {
+      // Actualizar la sesión después de la navegación
+      sessionStorage.clear();
+    });
+  }
 }

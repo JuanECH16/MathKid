@@ -1,6 +1,7 @@
 <section>
     <div class="container">
         <!-- <button>Agregar Contacto</button> -->
+        <h1>User</h1>
         <table>
             <thead>
                 <tr>
@@ -17,20 +18,17 @@
             </thead>
             <tbody>
                 <tr *ngFor="let user of users; let i = index;">
-                    <td scope="row">{{i + 1}}</td>
-                    <td>{{user.id_user}}</td>
-                    <!-- <td>
-                        <img [src]="user.image! | domSecure" (error)="setDefaultImage($event)" alt="img-user">
-                    </td> -->
-                    <td>{{user.userName}}</td>
-                    <td>{{user.email}}</td>
-                    <td>{{user.password}}</td>
-                    <td>{{user.name}}</td>
-                    <td>{{user.lastName}}</td>
-                    <td>
+                    <td data-label="#"> {{i + 1}}</td>
+                    <td data-label="Id">{{user.id_user}}</td>
+                    <td data-label="UserName">{{user.userName}}</td>
+                    <td data-label="Email">{{user.email}}</td>
+                    <td data-label="Password">{{user.password}}</td>
+                    <td data-label="Name">{{user.name}}</td>
+                    <td data-label="LastName">{{user.lastName}}</td>
+                    <td data-label="Actions">
                         <button (click)="updateUser(user.id_user!)">Update</button>
-                        <br>
                         <button (click)="deleteUser(user.id_user!)">Delete</button>
+                        <button (click)="logOut()">Exit</button>
                     </td>
                 </tr>
             </tbody>
