@@ -1,8 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
-:root{
-    color-scheme: light dark;
+/* Definir variables CSS para el modo claro y oscuro */
+:root {
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --btn-background-color: #007bff;
+    --btn-text-color: #ffffff;
 }
 
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #121212;
+        --text-color: #ffffff;
+        --btn-background-color: #1a73e8;
+        --btn-text-color: #ffffff;
+    }
+}
+
+/* Aplicar estilos globales utilizando las variables CSS */
 * {
     margin: 0;
     padding: 0;
@@ -12,6 +25,32 @@
 body {
     position: relative;
     min-height: 100vh;
-    padding-bottom: 130px; /* Ajusta el padding para compensar la altura del footer */
+    padding-bottom: 130px;
+    /* Ajusta el padding para compensar la altura del footer */
     font-family: 'Open Sans', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.container {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.btn {
+    background-color: var(--btn-background-color);
+    color: var(--btn-text-color);
+}
+
+/* Otros estilos específicos para el modo oscuro */
+@media (prefers-color-scheme: dark) {
+    .navbar {
+        background-color: var(--background-color);
+        color: var(--text-color);
+    }
+
+    .card {
+        background-color: var(--background-color);
+        color: var(--text-color);
+    }
 }
