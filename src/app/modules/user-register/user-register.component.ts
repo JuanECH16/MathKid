@@ -8,9 +8,10 @@ import { User } from '../../data/interfaces/users.interface';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-user-register',
-  templateUrl: './user-register.component.html',
-  styleUrl: './user-register.component.scss'
+    selector: 'app-user-register',
+    templateUrl: './user-register.component.html',
+    styleUrl: './user-register.component.scss',
+    standalone: false
 })
 export class UserRegisterComponent {
   form!:User;

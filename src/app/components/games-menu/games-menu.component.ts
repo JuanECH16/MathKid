@@ -4,9 +4,10 @@ import { GameService } from '../../data/services/game_service/game.service';  //
 import { Games } from '../../data/interfaces/games.interface';
 
 @Component({
-  selector: 'app-games-menu',
-  templateUrl: './games-menu.component.html',
-  styleUrl: './games-menu.component.scss'
+    selector: 'app-games-menu',
+    templateUrl: './games-menu.component.html',
+    styleUrl: './games-menu.component.scss',
+    standalone: false
 })
 export class GamesMenuComponent implements OnInit {
 

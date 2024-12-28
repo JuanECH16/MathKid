@@ -3,9 +3,10 @@ import { GameService } from '../../data/services/game_service/game.service'; // 
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-games',
-  templateUrl: './game.component.html',
-  styleUrl: './game.component.scss'
+    selector: 'app-games',
+    templateUrl: './game.component.html',
+    styleUrl: './game.component.scss',
+    standalone: false
 })
 export class GameComponent {
   // @Input() username = ''; // Comunicación de padre a hijo

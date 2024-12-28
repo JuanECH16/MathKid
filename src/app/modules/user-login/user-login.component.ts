@@ -4,9 +4,10 @@ import { ContactsService } from '../../data/services/contact_service/contacts.se
 import { User } from '../../data/interfaces/users.interface';
 
 @Component({
-  selector: 'app-user-login',
-  templateUrl: './user-login.component.html',
-  styleUrl: './user-login.component.scss'
+    selector: 'app-user-login',
+    templateUrl: './user-login.component.html',
+    styleUrl: './user-login.component.scss',
+    standalone: false
 })
 export class UserLoginComponent {
   nameUser: string | null = '';

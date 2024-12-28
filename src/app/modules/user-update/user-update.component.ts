@@ -7,9 +7,10 @@ import { Router } from '@angular/router';
 import { User } from '../../data/interfaces/users.interface';
 
 @Component({
-  selector: 'app-user-update',
-  templateUrl: './user-update.component.html',
-  styleUrl: './user-update.component.scss'
+    selector: 'app-user-update',
+    templateUrl: './user-update.component.html',
+    styleUrl: './user-update.component.scss',
+    standalone: false
 })
 export class UserUpdateComponent implements OnInit{
   uuid = uuidv4();

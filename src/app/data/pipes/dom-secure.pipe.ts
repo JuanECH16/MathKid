@@ -2,7 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Pipe({
-  name: 'domSecure'
+    name: 'domSecure',
+    standalone: false
 })
 export class DomSecurePipe implements PipeTransform {
 

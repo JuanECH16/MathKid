@@ -5,9 +5,10 @@ import { ContactsService } from '../../data/services/contact_service/contacts.se
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-user-delete',
-  templateUrl: './user-delete.component.html',
-  styleUrl: './user-delete.component.scss'
+    selector: 'app-user-delete',
+    templateUrl: './user-delete.component.html',
+    styleUrl: './user-delete.component.scss',
+    standalone: false
 })
 export class UserDeleteComponent {
   public Form: FormGroup;

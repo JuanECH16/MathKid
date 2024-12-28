@@ -7,9 +7,10 @@ import { User } from '../../data/interfaces/users.interface';
 
 
 @Component({
-  selector: 'app-users-list',
-  templateUrl: './users-list.component.html',
-  styleUrl: './users-list.component.scss'
+    selector: 'app-users-list',
+    templateUrl: './users-list.component.html',
+    styleUrl: './users-list.component.scss',
+    standalone: false
 })
 export class UsersListComponent implements OnInit {
 

@@ -3,9 +3,10 @@ import { Router } from '@angular/router';
 import { ContactsService } from '../../data/services/contact_service/contacts.service';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+    selector: 'app-header',
+    templateUrl: './header.component.html',
+    styleUrls: ['./header.component.scss'],
+    standalone: false
 })
 export class HeaderComponent implements OnInit {
   nameUser: string | null = '';

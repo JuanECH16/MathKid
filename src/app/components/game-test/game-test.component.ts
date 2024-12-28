@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { GameService } from '../../data/services/game_service/game.service';  // Ruta relativa al archivo del servicio
 
 @Component({
-  selector: 'app-game-test',
-  templateUrl: './game-test.component.html',
-  styleUrl: './game-test.component.scss'
+    selector: 'app-game-test',
+    templateUrl: './game-test.component.html',
+    styleUrl: './game-test.component.scss',
+    standalone: false
 })
 export class GameTestComponent {
   gameUrl: string = '/assets/godot-game/index.html';
