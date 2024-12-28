@@ -1,114 +1,135 @@
 /* General */
 
-#userContainer{
-    position: relative; /* Agregar posición relativa */
-    color: #337ab7;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 400px;
-    height: auto;
-    margin: 6% auto 0;
-    padding: 20px;
-    border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.932);
-    border: 2px solid #337ab7; /* Borde azul */
+#userContainer {
+  position: relative;
+  /* Agregar posición relativa */
+  color: #337ab7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  height: auto;
+  margin: 6% auto 0;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.932);
+  border: 2px solid #337ab7;
+  /* Borde azul */
+}
+
+#containerRegister,
+#containerLogin,
+#containerRemember,
+#containerDelete {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Estilos para el elemento de retroceso */
+#back {
+  position: absolute;
+  top: 10px;
+  /* Ajusta la posición superior según sea necesario */
+  left: 10px;
+  /* Ajusta la posición izquierda según sea necesario */
+  width: 40px;
+  /* Ancho del contenedor */
+  height: 40px;
+  /* Altura del contenedor */
+  border-radius: 20px;
+}
+
+/* Estilos para el botón de retroceso */
+#back input[type="button"] {
+  width: 100%;
+  /* El botón ocupará todo el ancho del contenedor */
+  height: 100%;
+  /* El botón ocupará toda la altura del contenedor */
+  font-size: 20px;
+  /* Tamaño de la fuente del botón */
+  border-radius: 10px;
+}
+
+/* Login */
+
+h2 {
+  color: #337ab7;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+}
+
+.form-check-label {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.form-check-input {
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: 0;
+}
+
+#remember,
+#register {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+#remember a,
+#register a {
+  text-decoration: none;
+}
+
+input[type="submit"],
+input[type="button"],
+select,
+button {
+  background-color: #337ab7;
+  color: #fff;
+  border: #337ab7;
+  padding: 8px 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+input {
+  margin-bottom: 10px;
+  /* Margen inferior para etiquetas, inputs y botones */
+}
+
+input[type="button"] {
+  background-color: transparent;
+  color: black;
+  font-size: 12px;
+  padding: 4px;
+}
+
+input[type="button"]:hover {
+  background-color: #337ab7;
+}
+
+/* Registro */
+
+#tabla-resultados {
+  margin: 0 auto;
+  text-align: center;
+  color: red;
+}
+
+@media only screen and (max-width: 400px) {
+  #userContainer {
+    width: 340px;
   }
-  
-  #containerRegister, #containerLogin, #containerRemember, #containerDelete{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  /* Estilos para el elemento de retroceso */
-  #back {
-    position: absolute;
-    top: 10px; /* Ajusta la posición superior según sea necesario */
-    left: 10px; /* Ajusta la posición izquierda según sea necesario */
-    width: 40px; /* Ancho del contenedor */
-    height: 40px; /* Altura del contenedor */ 
-    border-radius: 20px;
-  }
-  
-  /* Estilos para el botón de retroceso */
-  #back input[type="button"] {
-    width: 100%; /* El botón ocupará todo el ancho del contenedor */
-    height: 100%; /* El botón ocupará toda la altura del contenedor */
-    font-size: 20px; /* Tamaño de la fuente del botón */
-    border-radius: 10px;
-  }
-  
-  /* Login */
-  
-  h2{
-    color: #337ab7;
-    margin-bottom: 20px;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    width: 250px;
-  }
-  .form-check-label {
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 10px;
-    white-space: nowrap;
-    cursor: pointer;
-  }
-  .form-check-input {
-    display: inline-block;
-    vertical-align: middle;
-    margin-bottom: 0;
-  }
-  
-  #remember, #register{
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-  }
-  #remember a, #register a{
-    text-decoration: none;
-  }
-  
-  input[type="submit"], input[type="button"], select, button {
-    background-color: #337ab7;
-    color: #fff;
-    border:  #337ab7;
-    padding: 8px 8px; 
-    font-size: 14px;
-    cursor: pointer;
-  }
-  
-  input{
-    margin-bottom: 10px; /* Margen inferior para etiquetas, inputs y botones */
-  }
-  
-  input[type="button"]{
-    background-color: transparent;
-    color: black;
-    font-size: 12px;
-    padding: 4px;
-  }
-  
-  input[type="button"]:hover{
-    background-color: #337ab7;
-  }
-  
-  /* Registro */
-  
-  #tabla-resultados{
-    margin: 0 auto;
-    text-align: center;
-    color: red;
-  }
-  
-  @media only screen and (max-width: 400px) {
-    #userContainer{
-      width: 340px;
-    }
-  }
+}

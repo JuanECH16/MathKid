@@ -10,7 +10,7 @@ describe('UserUpdateComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [UserUpdateComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(UserUpdateComponent);
     component = fixture.componentInstance;

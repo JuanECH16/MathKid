@@ -4,19 +4,19 @@ import { GameService } from '../../data/services/game_service/game.service';  //
 import { Games } from '../../data/interfaces/games.interface';
 
 @Component({
-    selector: 'app-games-menu',
-    templateUrl: './games-menu.component.html',
-    styleUrl: './games-menu.component.scss',
-    standalone: false
+  selector: 'app-games-menu',
+  templateUrl: './games-menu.component.html',
+  styleUrl: './games-menu.component.scss',
+  standalone: false
 })
 export class GamesMenuComponent implements OnInit {
 
   gamePath: any = localStorage.getItem("gameUrl");
   gameName: any = localStorage.getItem("tableName");
 
-  games:Games[]=[];
+  games: Games[] = [];
 
-  constructor(private gameService: GameService, private router: Router) {}
+  constructor(private gameService: GameService, private router: Router) { }
 
   ngOnInit(): void {
     //this.loadGame(this.gamePath,this.gameName);
@@ -29,7 +29,7 @@ export class GamesMenuComponent implements OnInit {
     this.router.navigate(['/game-display']);
   }
 
-  getGames(id:string){
+  getGames(id: string) {
     //const tableName = localStorage.getItem('tableName') || 'users'; // Especifica el nombre de la tabla aquí
     this.gameService.getGames(id).subscribe((res: Games[]) => {
       this.games = res;

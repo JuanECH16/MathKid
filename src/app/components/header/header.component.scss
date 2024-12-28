@@ -15,7 +15,8 @@ header {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    margin-left: 10px; /* Asegura que el menú hamburguesa esté separado del borde */
+    margin-left: 10px;
+    /* Asegura que el menú hamburguesa esté separado del borde */
 }
 
 .hamburger div {
@@ -72,10 +73,12 @@ header {
     #optionsHeader {
         display: none;
         flex-direction: column;
-        align-items: flex-start; /* Alinea los elementos al inicio */
+        align-items: flex-start;
+        /* Alinea los elementos al inicio */
         width: 100%;
         position: absolute;
-        top: 80px; /* Asegura que el menú aparezca justo debajo del header */
+        top: 80px;
+        /* Asegura que el menú aparezca justo debajo del header */
         left: 0;
         background-color: #0597F2;
         z-index: 1;
@@ -97,8 +100,10 @@ header {
 
     #optionsHeader li {
         width: 100%;
-        justify-content: flex-start; /* Alinea el contenido al inicio */
-        margin: 0; /* Elimina el margen */
+        justify-content: flex-start;
+        /* Alinea el contenido al inicio */
+        margin: 0;
+        /* Elimina el margen */
     }
 
     #optionsHeader li a {

@@ -1,15 +1,8 @@
 <div>
-    <h1>Juego</h1>
-    <iframe 
-      [src]="gameUrl | safeUrl"
-      width="800" 
-      height="600" 
-      frameborder="0" 
-      allowfullscreen 
-      sandbox="allow-scripts allow-same-origin" 
-      title="Juego">
-    </iframe>
+  <h1>Juego</h1>
+  <iframe [src]="gameUrl | safeUrl" width="800" height="600" frameborder="0" allowfullscreen
+    sandbox="allow-scripts allow-same-origin" title="Juego">
+  </iframe>
 
-    <button (click)="ngOnInit()">Cambiar URL</button>
+  <button (click)="ngOnInit()">Cambiar URL</button>
 </div>
-  

@@ -7,14 +7,14 @@ import { User } from '../../data/interfaces/users.interface';
 
 
 @Component({
-    selector: 'app-users-list',
-    templateUrl: './users-list.component.html',
-    styleUrl: './users-list.component.scss',
-    standalone: false
+  selector: 'app-users-list',
+  templateUrl: './users-list.component.html',
+  styleUrl: './users-list.component.scss',
+  standalone: false
 })
 export class UsersListComponent implements OnInit {
 
-  users:User[]=[];
+  users: User[] = [];
   //@Input() users:any;
 
   //file:UploadImg;
@@ -26,12 +26,12 @@ export class UsersListComponent implements OnInit {
       base64textString: null
     }*/
   }
-  
+
   ngOnInit() {
     this.getContact(localStorage.getItem('idContact')!);
   }
 
-  getAllContacts(){
+  getAllContacts() {
     this.contactSvc.getContacts().subscribe((res: User[]) => {
       this.users = res;
     });
@@ -42,14 +42,14 @@ export class UsersListComponent implements OnInit {
   //   element.src = this.noImage;
   // }
 
-  updateUser(id:string){
-    if(this.getContact(id)){
+  updateUser(id: string) {
+    if (this.getContact(id)) {
       this._router.navigate(['/user/update/']);
     }
   }
 
-  deleteUser(id:string){
-    if(this.getContact(id)){
+  deleteUser(id: string) {
+    if (this.getContact(id)) {
       this.contactSvc.deleteContact(id).subscribe((res: User[]) => {
         console.log(res);
         localStorage.setItem('userLoggedStg', 'false');
@@ -60,17 +60,17 @@ export class UsersListComponent implements OnInit {
     }
   }
 
-  getContact(id:string){
+  getContact(id: string) {
     return this.contactSvc.getContact(id).subscribe((res: User[]) => {
       this.users = res;
-      localStorage.setItem('idContact',this.users[0].id_user!);
+      localStorage.setItem('idContact', this.users[0].id_user!);
     });
   }
 
-  logOut(){
+  logOut() {
     localStorage.setItem('userLoggedStg', 'false');
-    localStorage.setItem('userNameStg','');
-    localStorage.setItem('idContact','');
+    localStorage.setItem('userNameStg', '');
+    localStorage.setItem('idContact', '');
     // location.reload();
 
     // Navegar a la nueva ruta

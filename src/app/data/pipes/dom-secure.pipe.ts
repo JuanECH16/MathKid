@@ -2,12 +2,12 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Pipe({
-    name: 'domSecure',
-    standalone: false
+  name: 'domSecure',
+  standalone: false
 })
 export class DomSecurePipe implements PipeTransform {
 
-  constructor(private domSanitizer: DomSanitizer){}
+  constructor(private domSanitizer: DomSanitizer) { }
 
   transform(value: string): any {
     let url = 'http://localhost/apiphpserver/views/img/';

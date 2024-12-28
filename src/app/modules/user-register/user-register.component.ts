@@ -8,13 +8,13 @@ import { User } from '../../data/interfaces/users.interface';
 import { Router } from '@angular/router';
 
 @Component({
-    selector: 'app-user-register',
-    templateUrl: './user-register.component.html',
-    styleUrl: './user-register.component.scss',
-    standalone: false
+  selector: 'app-user-register',
+  templateUrl: './user-register.component.html',
+  styleUrl: './user-register.component.scss',
+  standalone: false
 })
 export class UserRegisterComponent {
-  form!:User;
+  form!: User;
   //file:UploadImg;
 
   public Form: FormGroup;
@@ -28,25 +28,25 @@ export class UserRegisterComponent {
     }*/
 
     this.Form = this.fb.group({
-      userName:[''],
-      email:[''],
-      password:[''],
-      name:[''],
-      lastName:['']     
+      userName: [''],
+      email: [''],
+      password: [''],
+      name: [''],
+      lastName: ['']
     })
   }
 
- /*selectFile(event:any){
-    var files = event.target.files;
-    var file = files[0];
-    this.file.nameFile = `${this.uuid}-${file.name}`;
-
-    if(files && file){
-      var reader = new FileReader();
-      reader.onload = this._handleReaderLoaded.bind(this);
-      reader.readAsDataURL(file);
-    }
-  }*/
+  /*selectFile(event:any){
+     var files = event.target.files;
+     var file = files[0];
+     this.file.nameFile = `${this.uuid}-${file.name}`;
+ 
+     if(files && file){
+       var reader = new FileReader();
+       reader.onload = this._handleReaderLoaded.bind(this);
+       reader.readAsDataURL(file);
+     }
+   }*/
 
   /*_handleReaderLoaded(readerEvent:any){
     var reader = readerEvent.target;
@@ -61,11 +61,11 @@ export class UserRegisterComponent {
       name: this.Form.value.name,
       lastName: this.Form.value.lastName
     };
-  
+
     this.contactSvc.addContact(this.form).subscribe({
       next: res => {
         //this.upload();
-  
+
         Swal.fire({
           icon: 'success',
           title: 'Success',

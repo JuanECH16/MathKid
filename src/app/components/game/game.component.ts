@@ -3,10 +3,10 @@ import { GameService } from '../../data/services/game_service/game.service'; // 
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-    selector: 'app-games',
-    templateUrl: './game.component.html',
-    styleUrl: './game.component.scss',
-    standalone: false
+  selector: 'app-games',
+  templateUrl: './game.component.html',
+  styleUrl: './game.component.scss',
+  standalone: false
 })
 export class GameComponent {
   // @Input() username = ''; // Comunicación de padre a hijo
@@ -24,15 +24,15 @@ export class GameComponent {
 
   gameUrl: any = '';
 
-  constructor(private gameService: GameService, private route: ActivatedRoute) {}
+  constructor(private gameService: GameService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    if(this.loadGame()){
+    if (this.loadGame()) {
       this.loadLastGame();
     }
   }
 
-  loadGame(){
+  loadGame() {
     return this.gameService.gameUrl$.subscribe(url => {
       this.gameUrl = url;
       console.log(`URL recibida en display: ${this.gameUrl}`);

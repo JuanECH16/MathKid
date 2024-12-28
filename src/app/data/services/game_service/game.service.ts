@@ -9,8 +9,8 @@ import { HttpClient } from '@angular/common/http';
 export class GameService {
   private gameUrlSubject = new BehaviorSubject<string>('');
   gameUrl$ = this.gameUrlSubject.asObservable();
-  
-  constructor(private http: HttpClient){}
+
+  constructor(private http: HttpClient) { }
 
   url: string = "";
 
@@ -19,7 +19,7 @@ export class GameService {
     this.gameUrlSubject.next(url);
   }
 
-  getGames(id:string): Observable<Games[]> {
+  getGames(id: string): Observable<Games[]> {
     return this.http.get<Games[]>(`${this.url}/index.php?id=${id}`);
   }
 }

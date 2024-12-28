@@ -4,22 +4,22 @@ import { ContactsService } from '../../data/services/contact_service/contacts.se
 import { User } from '../../data/interfaces/users.interface';
 
 @Component({
-    selector: 'app-user-login',
-    templateUrl: './user-login.component.html',
-    styleUrl: './user-login.component.scss',
-    standalone: false
+  selector: 'app-user-login',
+  templateUrl: './user-login.component.html',
+  styleUrl: './user-login.component.scss',
+  standalone: false
 })
 export class UserLoginComponent {
   nameUser: string | null = '';
   loginUserStoraged: string | null = '';
 
-  constructor(private _router:Router, private _contactSvc:ContactsService){}
+  constructor(private _router: Router, private _contactSvc: ContactsService) { }
 
-  mostrarElementRemember(){
+  mostrarElementRemember() {
     this._router.navigate(['/user/update']);
   }
 
-  mostrarElementRegister(){
+  mostrarElementRegister() {
     this._router.navigate(['/user/register']);
   }
 
@@ -31,11 +31,11 @@ export class UserLoginComponent {
 
   loginContact(email: string, password: string, event: Event) {
     event.preventDefault();
-    this._contactSvc.loginContact(email,password).subscribe((data: User[]) => {
+    this._contactSvc.loginContact(email, password).subscribe((data: User[]) => {
       console.log(data);
-      if(data == null){
+      if (data == null) {
         console.log("Error en Correo o Contraseña");
-      }else{
+      } else {
         localStorage.setItem("userNameStg", data[0].userName);
         localStorage.setItem('userLoggedStg', "true");
         localStorage.setItem('idContact', data[0].id_user!);

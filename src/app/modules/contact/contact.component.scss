@@ -15,7 +15,8 @@ body {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
   border-radius: 20px;
   width: 400px;
-  margin: 0 auto; /* Establece margen automático en todos los lados */
+  margin: 0 auto;
+  /* Establece margen automático en todos los lados */
 }
 
 .for {
@@ -53,7 +54,8 @@ textarea {
   font-size: 20px;
   cursor: pointer;
   background-color: #337ab7;
-  padding: 15px 25px; /* Ajusta el padding para que el botón sea más grande */
+  padding: 15px 25px;
+  /* Ajusta el padding para que el botón sea más grande */
 }
 
 .Botn:hover {
@@ -63,11 +65,13 @@ textarea {
 
 .imga {
   display: flex;
-  justify-content: center; /* Centra horizontalmente los íconos */
+  justify-content: center;
+  /* Centra horizontalmente los íconos */
 }
 
 .imga p {
-  margin-right: 10px; /* Reduce el margen entre los íconos */
+  margin-right: 10px;
+  /* Reduce el margen entre los íconos */
 }
 
 .imga img {

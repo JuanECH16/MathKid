@@ -6,6 +6,6 @@ import { Component, OnInit } from '@angular/core';
     styleUrl: './game-display.component.scss',
     standalone: false
 })
-export class GameDisplayComponent{
+export class GameDisplayComponent {
 
 }

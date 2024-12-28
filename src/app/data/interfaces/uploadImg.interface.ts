@@ -1,4 +1,4 @@
-export interface UploadImg{
-    nameFile:string;
-    base64textString:any | null;
+export interface UploadImg {
+    nameFile: string;
+    base64textString: any | null;
 }

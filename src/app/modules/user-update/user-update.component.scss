@@ -1,19 +1,21 @@
 .container {
-    position: relative; /* Agregar posición relativa */
-    color: #337ab7;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 400px;
-    height: auto;
-    margin: 6% auto 0;
-    padding: 20px;
-    border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.932);
-    border: 2px solid #337ab7; /* Borde azul */
-  }
-  
+  position: relative;
+  /* Agregar posición relativa */
+  color: #337ab7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  height: auto;
+  margin: 6% auto 0;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.932);
+  border: 2px solid #337ab7;
+  /* Borde azul */
+}
+
 //   section {
 //     background-color: #f9f9f9; /* Color de fondo para el formulario */
 //     padding: 20px;
@@ -22,40 +24,50 @@
 //     max-width: 400px; /* Ancho máximo del formulario */
 //     width: 100%; /* Asegura que el formulario ocupe todo el ancho disponible */
 //   }
-  
-  h1 {
-    text-align: center; /* Centra el título */
-    margin-bottom: 20px; /* Espacio inferior para el título */
-    color: #337ab7;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  input[type="text"],
-  input[type="email"],
-  input[type="file"],
-  input[type="password"],
-  button[type="button"] {
-    margin-bottom: 15px; /* Espacio inferior entre los campos */
-    padding: 3px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 80%; /* Asegura que los campos ocupen todo el ancho disponible */
-    box-sizing: border-box; /* Incluye el padding y el borde en el ancho total */
-  }
-  
-  button[type="button"] {
-    background-color: #007bff; /* Color de fondo para el botón */
-    color: white; /* Color del texto del botón */
-    border: none; /* Sin borde */
-    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
-  }
-  
-  button[type="button"]:hover {
-    background-color: #0056b3; /* Color de fondo al pasar el cursor sobre el botón */
-  }
+
+h1 {
+  text-align: center;
+  /* Centra el título */
+  margin-bottom: 20px;
+  /* Espacio inferior para el título */
+  color: #337ab7;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="file"],
+input[type="password"],
+button[type="button"] {
+  margin-bottom: 15px;
+  /* Espacio inferior entre los campos */
+  padding: 3px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 80%;
+  /* Asegura que los campos ocupen todo el ancho disponible */
+  box-sizing: border-box;
+  /* Incluye el padding y el borde en el ancho total */
+}
+
+button[type="button"] {
+  background-color: #007bff;
+  /* Color de fondo para el botón */
+  color: white;
+  /* Color del texto del botón */
+  border: none;
+  /* Sin borde */
+  cursor: pointer;
+  /* Cambia el cursor al pasar sobre el botón */
+}
+
+button[type="button"]:hover {
+  background-color: #0056b3;
+  /* Color de fondo al pasar el cursor sobre el botón */
+}

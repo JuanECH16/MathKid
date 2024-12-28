@@ -5,27 +5,27 @@ import { ContactsService } from '../../data/services/contact_service/contacts.se
 import { Router } from '@angular/router';
 
 @Component({
-    selector: 'app-user-delete',
-    templateUrl: './user-delete.component.html',
-    styleUrl: './user-delete.component.scss',
-    standalone: false
+  selector: 'app-user-delete',
+  templateUrl: './user-delete.component.html',
+  styleUrl: './user-delete.component.scss',
+  standalone: false
 })
 export class UserDeleteComponent {
   public Form: FormGroup;
-  form!:User;
+  form!: User;
 
   constructor(private contactSvc: ContactsService, private fb: FormBuilder, private _router: Router) {
     this.Form = this.fb.group({
       //image:null,
-      userName:[''],
-      email:[''],
-      password:[''],
-      name:[''],
-      lastName:['']     
+      userName: [''],
+      email: [''],
+      password: [''],
+      name: [''],
+      lastName: ['']
     })
   }
 
-  deleteContact(){
+  deleteContact() {
     console.log("asdasd");
   }
 }

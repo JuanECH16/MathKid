@@ -7,68 +7,95 @@ img {
 }
 
 :root {
-  --img-border-color: black; /* Color por defecto para el modo claro */
+  --img-border-color: black;
+  /* Color por defecto para el modo claro */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --img-border-color: white; /* Color para el modo oscuro */
+    --img-border-color: white;
+    /* Color para el modo oscuro */
   }
 }
 
 .container {
   display: flex;
-  flex-direction: column; /* Organizar los elementos en una columna */
-  justify-content: center; /* Centrar verticalmente */
-  align-items: center; /* Centrar horizontalmente */
-  height: 100vh; /* Ocupa toda la altura de la ventana */
+  flex-direction: column;
+  /* Organizar los elementos en una columna */
+  justify-content: center;
+  /* Centrar verticalmente */
+  align-items: center;
+  /* Centrar horizontalmente */
+  height: 100vh;
+  /* Ocupa toda la altura de la ventana */
 }
 
 h1 {
-  margin-bottom: 20px; /* Espacio entre el h1 y la tabla */
-  text-align: center; /* Alinear el texto del h1 al centro */
+  margin-bottom: 20px;
+  /* Espacio entre el h1 y la tabla */
+  text-align: center;
+  /* Alinear el texto del h1 al centro */
 }
 
 table {
   width: 100%;
-  max-width: 800px; /* Ancho máximo de la tabla */
+  max-width: 800px;
+  /* Ancho máximo de la tabla */
   border-collapse: collapse;
-  text-align: left; /* Alinear el texto a la izquierda */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para la tabla */
+  text-align: left;
+  /* Alinear el texto a la izquierda */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Sombra para la tabla */
 }
 
 thead {
-  display: none; /* Ocultar los encabezados de la tabla */
+  display: none;
+  /* Ocultar los encabezados de la tabla */
 }
 
-th, td {
-  padding: 10px; /* Padding para las celdas */
-  border: 1px solid #ddd; /* Bordes de las celdas */
-  box-sizing: border-box; /* Incluir padding y border en el tamaño total */
+th,
+td {
+  padding: 10px;
+  /* Padding para las celdas */
+  border: 1px solid #ddd;
+  /* Bordes de las celdas */
+  box-sizing: border-box;
+  /* Incluir padding y border en el tamaño total */
 }
 
 th {
-  font-weight: bold; /* Negrita para los encabezados */
-  background-color: #f2f2f2; /* Color de fondo para los encabezados */
+  font-weight: bold;
+  /* Negrita para los encabezados */
+  background-color: #f2f2f2;
+  /* Color de fondo para los encabezados */
 }
 
 tr {
-  display: grid; /* Mostrar cada fila como una cuadrícula */
-  grid-template-columns: 1fr 1fr; /* Definir las columnas de la cuadrícula con el mismo tamaño */
-  margin-bottom: 10px; /* Espacio entre filas */
+  display: grid;
+  /* Mostrar cada fila como una cuadrícula */
+  grid-template-columns: 1fr 1fr;
+  /* Definir las columnas de la cuadrícula con el mismo tamaño */
+  margin-bottom: 10px;
+  /* Espacio entre filas */
 }
 
 tr:nth-child(even) {
-  background-color: black; /* Color de fondo para filas pares */
+  background-color: black;
+  /* Color de fondo para filas pares */
 }
 
 tr:hover {
-  background-color: black; /* Color de fondo al pasar el ratón */
+  background-color: black;
+  /* Color de fondo al pasar el ratón */
 }
 
 td::before {
-  content: attr(data-label); /* Mostrar el encabezado antes del valor */
-  font-weight: bold; /* Negrita para el encabezado */
-  display: inline-block; /* Mostrar en línea */
-  width: 100px; /* Ancho fijo para el encabezado */
+  content: attr(data-label);
+  /* Mostrar el encabezado antes del valor */
+  font-weight: bold;
+  /* Negrita para el encabezado */
+  display: inline-block;
+  /* Mostrar en línea */
+  width: 100px;
+  /* Ancho fijo para el encabezado */
 }

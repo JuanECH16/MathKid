@@ -21,18 +21,18 @@ export class ContactsService {
 
     let update: boolean = false;
 
-    if(checkUser){
+    if (checkUser) {
       if (userNameElement) {
 
         userNameElement.textContent = nameUser ?? 'Invitado';
-  
-        if(loginBtnMsg){
+
+        if (loginBtnMsg) {
           loginBtnMsg.textContent = 'Mi Cuenta';
           update = true;
         }
       }
-    }else{
-      if(loginBtnMsg){
+    } else {
+      if (loginBtnMsg) {
         loginBtnMsg.textContent = 'Iniciar Sesión';
         update = false;
       }
@@ -54,7 +54,7 @@ export class ContactsService {
   }*/
 
   // Recoge un contacto de la base de datos por su id
-  getContact(id:string): Observable<User[]> {
+  getContact(id: string): Observable<User[]> {
     return this.http.get<User[]>(`${this.url}users.php?id_user=${id}`).pipe(
       catchError(this.handleError)
     );

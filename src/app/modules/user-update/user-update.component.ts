@@ -7,18 +7,18 @@ import { Router } from '@angular/router';
 import { User } from '../../data/interfaces/users.interface';
 
 @Component({
-    selector: 'app-user-update',
-    templateUrl: './user-update.component.html',
-    styleUrl: './user-update.component.scss',
-    standalone: false
+  selector: 'app-user-update',
+  templateUrl: './user-update.component.html',
+  styleUrl: './user-update.component.scss',
+  standalone: false
 })
-export class UserUpdateComponent implements OnInit{
+export class UserUpdateComponent implements OnInit {
   uuid = uuidv4();
-  user:User[] = [];
-  
-  file:UploadImg;
+  user: User[] = [];
+
+  file: UploadImg;
   public Form: FormGroup;
-  form!:User;
+  form!: User;
 
   constructor(private contactSvc: ContactsService, private fb: FormBuilder, private _router: Router) {
     this.file = {
@@ -28,18 +28,18 @@ export class UserUpdateComponent implements OnInit{
 
     this.Form = this.fb.group({
       //image:null,
-      userName:[''],
-      email:[''],
-      password:[''],
-      name:[''],
-      lastName:['']     
+      userName: [''],
+      email: [''],
+      password: [''],
+      name: [''],
+      lastName: ['']
     })
   }
   ngOnInit() {
     this.getContact(localStorage.getItem('idContact')!);
     this.closeForm();
   }
-  
+
   /*selectFile(event:any){
     var files = event.target.files;
     var file = files[0];
@@ -57,7 +57,7 @@ export class UserUpdateComponent implements OnInit{
     this.file.base64textString = btoa(reader);
   }*/
 
-  getContact(id:string){
+  getContact(id: string) {
     this.contactSvc.getContact(id).subscribe((res: User[]) => {
       this.user = res;
 
@@ -69,12 +69,12 @@ export class UserUpdateComponent implements OnInit{
         lastName: this.user[0].lastName
       });
 
-      localStorage.setItem('idContact',this.user[0].id_user!);
+      localStorage.setItem('idContact', this.user[0].id_user!);
       //localStorage.setItem('idImage',this.user[0]['image']!);
     });
   }
 
-  closeForm(){
+  closeForm() {
     this.Form.reset();
     //localStorage.removeItem('idContact');
     //localStorage.removeItem('idImage');
@@ -86,7 +86,7 @@ export class UserUpdateComponent implements OnInit{
     this._router.navigate(['']);
   }*/
 
-  editContact(){
+  editContact() {
     this.form = {
       id_user: localStorage.getItem('idContact')!,
       userName: this.Form.value.userName,
@@ -98,11 +98,11 @@ export class UserUpdateComponent implements OnInit{
 
     this.contactSvc.editContact(this.form).subscribe((res: User[]) => {
       const index = this.form.id_user;
-      if(index != null){
+      if (index != null) {
         this.user = res;
         localStorage.setItem('userNameStg', this.form.userName!);
       }
-      
+
       console.log(res);
       this._router.navigate(['']);
     });

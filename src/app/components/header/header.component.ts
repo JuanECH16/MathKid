@@ -3,10 +3,10 @@ import { Router } from '@angular/router';
 import { ContactsService } from '../../data/services/contact_service/contacts.service';
 
 @Component({
-    selector: 'app-header',
-    templateUrl: './header.component.html',
-    styleUrls: ['./header.component.scss'],
-    standalone: false
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss'],
+  standalone: false
 })
 export class HeaderComponent implements OnInit {
   nameUser: string | null = '';
@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
 
   numPressedAdmin: number = 0;
 
-  constructor(private router: Router, private _contactSvc: ContactsService, private cdr: ChangeDetectorRef) {}
+  constructor(private router: Router, private _contactSvc: ContactsService, private cdr: ChangeDetectorRef) { }
 
   ngOnInit() {
     this.nameUser = localStorage.getItem('userNameStg');
@@ -33,7 +33,7 @@ export class HeaderComponent implements OnInit {
 
   nameSelect(event: Event) {
     event.preventDefault(); // Prevenir el comportamiento predeterminado del enlace
-    
+
     this.checkUser();
 
     alert('Hola ' + this.nameUser + ', ¿Cómo vas?');
@@ -87,12 +87,12 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  checkUser(){
+  checkUser() {
     this.nameUser = localStorage.getItem('userNameStg');
 
-    if(this.loginUserStoraged == "true"){
+    if (this.loginUserStoraged == "true") {
       return true;
-    }else{
+    } else {
       this.nameUser = 'Invitado';
       localStorage.setItem('idContact', "4");
       localStorage.setItem('userNameStg', 'Invitado');

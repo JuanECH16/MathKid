@@ -10,7 +10,7 @@ describe('UserDeleteComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [UserDeleteComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(UserDeleteComponent);
     component = fixture.componentInstance;

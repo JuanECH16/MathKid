@@ -1,22 +1,28 @@
 /* game-display.component.scss */
 .container {
   display: flex;
-  justify-content: space-between; /* Ajusta el espacio entre los componentes */
-  height: 100vh; /* Asegura que el contenedor ocupe toda la altura de la ventana */
+  justify-content: space-between;
+  /* Ajusta el espacio entre los componentes */
+  height: 100vh;
+  /* Asegura que el contenedor ocupe toda la altura de la ventana */
 }
 
-.container > * {
-  flex: 1; /* Ajusta el tamaño de los componentes para que ocupen el mismo espacio */
-  margin: 20px; /* Reduce el margen entre los componentes */
+.container>* {
+  flex: 1;
+  /* Ajusta el tamaño de los componentes para que ocupen el mismo espacio */
+  margin: 20px;
+  /* Reduce el margen entre los componentes */
 }
 
 .container h1 {
-  text-align: center; /* Centra el texto */
+  text-align: center;
+  /* Centra el texto */
 }
 
 .col1 {
   display: flex;
-  flex: 4; /* Hacer que .col1 ocupe más espacio */
+  flex: 4;
+  /* Hacer que .col1 ocupe más espacio */
   position: relative;
   width: 100%;
   height: 100vh;
@@ -24,7 +30,8 @@
 
 .col2 {
   display: flex;
-  flex: 1; /* Hacer que .col2 sea más pequeña */
+  flex: 1;
+  /* Hacer que .col2 sea más pequeña */
   flex-direction: column;
   justify-content: center;
   align-items: center;
