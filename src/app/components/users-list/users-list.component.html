@@ -1,24 +1,24 @@
 <section>
-    <div class="container">
+    <div class="container table-responsive">
         <!-- <button>Agregar Contacto</button> -->
         <h1>User</h1>
-        <table>
+        <table class="table">
             <thead>
                 <tr>
-                    <th>#</th>
-                    <th>Id</th>
-                    <!-- <th>Image</th> -->
-                    <th>UserName</th>
-                    <th>Email</th>
-                    <th>Password</th>
-                    <th>Name</th>
-                    <th>LastName</th>
-                    <th>Actions</th>
+                    <th scope="col">#</th>
+                    <th scope="col">Id</th>
+                    <!-- <th scope="col">Image</th> -->
+                    <th scope="col">UserName</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Password</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">LastName</th>
+                    <th scope="col">Actions</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody *ngIf="users.length > 0; else noUsers">
                 <tr *ngFor="let user of users; let i = index;">
-                    <td data-label="#"> {{i + 1}}</td>
+                    <td scope="row" data-label="#">{{i + 1}}</td>
                     <td data-label="Id">{{user.id_user}}</td>
                     <td data-label="UserName">{{user.userName}}</td>
                     <td data-label="Email">{{user.email}}</td>
@@ -26,12 +26,24 @@
                     <td data-label="Name">{{user.name}}</td>
                     <td data-label="LastName">{{user.lastName}}</td>
                     <td data-label="Actions">
-                        <button (click)="updateUser(user.id_user!)">Update</button>
-                        <button (click)="deleteUser(user.id_user!)">Delete</button>
+                        <button (click)="updateUser(user.id_user!)" class="me-2">Update</button>
+                        <button (click)="deleteUser(user.id_user!)" class="me-2">Delete</button>
                         <button (click)="logOut()">Exit</button>
                     </td>
                 </tr>
             </tbody>
+            <ng-template #noUsers>
+                <tbody>
+                    <tr>
+                        <td class="d-flex justify-content-start align-items-center">
+                            <h2 class="my-0">No Users</h2>
+                        </td>
+                        <td class="d-flex justify-content-start align-items-center">
+                            <button (click)="logIn()">Log In</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </ng-template>
         </table>
     </div>
 </section>

@@ -4,46 +4,54 @@
     flex-direction: column;
     align-items: center;
     border-radius: 5%;
-    padding: 50px 50px;
 
     box-shadow: 3px 0 20px rgba(0, 0, 0, 0.8);
-    width: 35%;
+    width: 50vh;
     margin: 0 auto;
     /* Esto centra el contenedor horizontalmente */
 }
 
-.top,
-.middle,
-.bottom {
-    display: flex;
-    margin-bottom: 20px;
+.table {
+    width: 50vh;
+    margin: 0 auto;
+    border: 0;
 }
 
-.top a,
-.middle a,
-.bottom a {
+.table thead {
+    display: none;
+}
+
+.table tbody tr {
+    display: flex;
+    justify-content: center;
+    gap: 0px;
+    
+}
+
+.table tbody tr td a {
     text-decoration: none;
     color: white;
-    justify-content: center;
     display: flex;
+    justify-content: center;
     align-items: center;
-    height: 150px;
-    width: 150px;
-    margin-left: 3%;
-    margin-right: 3%;
+    height: 20vh;
+    width: 18vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    cursor: pointer;
 }
 
 .g1 {
     background-color: #04B2D9;
     background-image: url('/assets/img/PortadaAsteroids.jpg');
-    background-size: cover;
     /* Ajusta la imagen para que cubra todo el espacio */
 }
 
 .g2 {
     background-color: #05F2C7;
     background-image: url('/assets/img/PortadaSpaceMath.jpeg');
-    background-size: cover;
     /* Ajusta la imagen para que cubra todo el espacio */
 }
 
@@ -54,8 +62,6 @@
 
 .g4 {
     background-color: #05F2C7;
-    margin-right: 0;
-    /* Quita el margen derecho para el segundo y cuarto juego */
 }
 
 .g5 {
@@ -67,8 +73,8 @@
     background-color: #05F2C7;
 }
 
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 1300px) {
     .games {
-        padding: 50px 170px;
+        width: 95%;
     }
 }

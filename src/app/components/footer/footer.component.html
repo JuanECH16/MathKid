@@ -1,18 +1,21 @@
 <footer>
-    <section>
-        <img src="/../assets/img/Logo.png" alt="Logo_MathKid" id="logoFooter">
+    <section class="d-flex justify-content-center align-items-center">
+        <picture>
+            <!-- <source media="(min-width: 768px)" srcset="assets/images/logo.png"> -->
+            <img src="/../assets/img/Logo.png" alt="Logo_MathKid" class="img-fluid">
+        </picture>
     </section>
     <div class="footer-line"></div> <!-- Línea vertical -->
-    <section>
-        <nav id="opcionesFooter">
-            <ul class="menufot">
-                <li><a class="menufot" href="" (click)="toHome($event)">Inicio</a></li>
-                <li><a class="menufot" href="" (click)="toContact($event)">Contáctanos</a></li>
+    <section class="d-flex justify-content-center align-items-center">
+        <nav>
+            <ul class="p-0 m-0 text-center">
+                <li><a href="" (click)="toHome($event)">Inicio</a></li>
+                <li><a href="" (click)="toContact($event)">Contáctanos</a></li>
             </ul>
         </nav>
     </section>
     <div class="footer-line"></div> <!-- Línea vertical -->
-    <section>
-        <p>&copy; Derechos Reservados 2024</p>
+    <section class="d-flex justify-content-center align-items-center">
+        <p class="my-0">&copy; Derechos Reservados 2024</p>
     </section>
 </footer>

@@ -15,18 +15,7 @@
     }
 }
 
-/* Aplicar estilos globales utilizando las variables CSS */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    position: relative;
-    min-height: 100vh;
-    padding-bottom: 130px; /* Ajusta el padding para compensar la altura del footer */
-    font-family: 'Open Sans', sans-serif;
     background-color: var(--background-color);
     color: var(--text-color);
 }
@@ -45,6 +34,12 @@ body {
     background-color: var(--background-color);
     color: var(--text-color);
 }
+
+.table, .table th, .table td {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
 /* Otros estilos específicos para el modo oscuro */
 @media (prefers-color-scheme: dark) {
     .navbar {

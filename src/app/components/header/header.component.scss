@@ -8,6 +8,10 @@ header {
     width: 100%;
 }
 
+#title a {
+    text-decoration: none;
+}
+
 /* Menú Hamburguesa */
 .hamburger {
     display: none;

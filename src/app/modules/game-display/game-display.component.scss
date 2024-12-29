@@ -3,20 +3,16 @@
   display: flex;
   justify-content: space-between;
   /* Ajusta el espacio entre los componentes */
-  height: 100vh;
+  height: 90vh;
+  padding: 0;
   /* Asegura que el contenedor ocupe toda la altura de la ventana */
 }
 
 .container>* {
   flex: 1;
   /* Ajusta el tamaño de los componentes para que ocupen el mismo espacio */
-  margin: 20px;
+  // margin: 20px;
   /* Reduce el margen entre los componentes */
-}
-
-.container h1 {
-  text-align: center;
-  /* Centra el texto */
 }
 
 .col1 {
@@ -24,8 +20,7 @@
   flex: 4;
   /* Hacer que .col1 ocupe más espacio */
   position: relative;
-  width: 100%;
-  height: 100vh;
+
 }
 
 .col2 {

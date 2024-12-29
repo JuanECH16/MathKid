@@ -67,6 +67,10 @@ export class UsersListComponent implements OnInit {
     });
   }
 
+  logIn() {
+    this._router.navigate(['/user/login']);
+  }
+
   logOut() {
     localStorage.setItem('userLoggedStg', 'false');
     localStorage.setItem('userNameStg', '');

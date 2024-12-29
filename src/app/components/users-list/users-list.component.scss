@@ -7,7 +7,7 @@ img {
 }
 
 :root {
-  --img-border-color: black;
+  --img-bzorder-color: black !important;
   /* Color por defecto para el modo claro */
 }
 
@@ -38,13 +38,12 @@ h1 {
 }
 
 table {
-  width: 100%;
   max-width: 800px;
   /* Ancho máximo de la tabla */
   border-collapse: collapse;
   text-align: left;
   /* Alinear el texto a la izquierda */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 4px 4px rgba(0, 0, 0, 0.1);
   /* Sombra para la tabla */
 }
 
@@ -75,8 +74,6 @@ tr {
   /* Mostrar cada fila como una cuadrícula */
   grid-template-columns: 1fr 1fr;
   /* Definir las columnas de la cuadrícula con el mismo tamaño */
-  margin-bottom: 10px;
-  /* Espacio entre filas */
 }
 
 tr:nth-child(even) {

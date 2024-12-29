@@ -1,20 +1,31 @@
-<br><br><br>
-
-<section>
+<section class="my-5">
     <div class="games">
-        <div class="top">
-            <a class="g1" (click)="loadGame('assets/js-game/index.html', 'Asteroids')">Asteroids</a>
-            <a class="g2" (click)="loadGame('assets/godot-game/index.html', 'SpaceMath')">SpaceMath</a>
-            <!-- <a class="g1" (click)="getGames('1')">Asteroids</a>
-            <a class="g2" (click)="getGames('2')">SpaceMath</a> -->
-        </div>
-        <div class="middle">
-            <a class="g3" (click)="loadGame('assets/max-game/index.html', 'Max')">Juego 3</a>
-            <a class="g4" (click)="loadGame('assets/knightRun/index.html', 'knightRun')">Juego 4</a>
-        </div>
-        <div class="bottom">
-            <a class="g5" href="#">Juego 5</a>
-            <a class="g6" href="#">Juego 6</a>
+        <div class="table-responsive">
+            <table class="table table-borderless my-4">
+                <thead>
+                    <tr>
+                        <th scope="col">Col1</th>
+                        <th scope="col">Col2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr> 
+                        <td><a class="g1" (click)="loadGame('assets/js-game/index.html', 'Asteroids')">Asteroids</a>
+                        </td>
+                        <td><a class="g2" (click)="loadGame('assets/godot-game/index.html', 'SpaceMath')">SpaceMath</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><a class="g3" (click)="loadGame('assets/max-game/index.html', 'Max')">Juego 3</a></td>
+                        <td><a class="g4" (click)="loadGame('assets/knightRun/index.html', 'knightRun')">Juego 4</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><a class="g5" href="#">Juego 5</a></td>
+                        <td><a class="g6" href="#">Juego 6</a></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </section>

@@ -4,43 +4,34 @@ footer {
     justify-content: space-around;
     align-items: center;
     width: 100%;
-    height: 130px;
+    height: 20vh;
     /* Altura deseada para el footer */
     background: #0597F2;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-}
-
-footer section {
-    color: white;
-    padding: 10px;
-    /* Añade espacio entre la línea y el contenido */
-    display: flex;
-    /* Asegura que los elementos internos se alineen correctamente */
-    align-items: center;
-    /* Centra verticalmente los elementos internos */
+    position: relative;
+    transition: height 0.3s ease; /* Transición suave para el cambio de altura */
 }
 
 .footer-line {
-    width: 1px;
+    width: 0.2vh;
     /* Ancho fijo para la línea vertical */
     height: 80%;
     /* Altura de la línea */
     background-color: white;
     /* Color de la línea */
-    margin: 0 10px;
-    /* Espacio entre la línea y los elementos del footer */
+}
+
+ul {
+    list-style: none;
 }
 
 footer section img {
-    height: 100px;
+    height: 15vh;
 }
 
 /* Responsivo */
 @media screen and (max-width: 800px) {
     footer {
-        height: auto;
+        height: 40vh;
         /* Cambiado a altura automática para permitir que el contenido se expanda */
         flex-direction: column;
     }
@@ -48,7 +39,15 @@ footer section img {
     .footer-line {
         width: 95%;
         /* Ancho fijo para la línea vertical */
-        height: 1px;
+        height: 0.4vh;
         /* Altura de la línea */
+    }
+}
+
+/* Zoom out */
+@media screen and (min-width: 2400px) {
+    footer {
+        height: 70vh; /* Aumenta la altura del footer cuando se hace zoom out */
+        font-size: 2rem;
     }
 }
