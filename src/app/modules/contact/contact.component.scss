@@ -4,7 +4,7 @@ body {
   background-color: rgb(91, 97, 99);
 }
 
-.contenedor {
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -81,6 +81,6 @@ textarea {
 
 @media only screen and (max-width: 850px) {
   .container {
-    width: 90%;
+    width: 95%;
   }
 }
