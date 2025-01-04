@@ -74,7 +74,7 @@ export class UserRegisterComponent {
         }).then((result) => {
           if (result) {
             //location.reload();
-            this._router.navigate(['/user/login']);
+            this.backLogin();
           }
         });
       },
@@ -87,6 +87,10 @@ export class UserRegisterComponent {
         });
       }
     });
+  }
+
+  backLogin() {
+    this._router.navigate(['/user/login']);
   }
 
   /*upload(){
